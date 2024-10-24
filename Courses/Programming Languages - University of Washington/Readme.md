@@ -1,8 +1,8 @@
 # Programming Languages Course 
 ### by Dr.Dan Grossman
 
-##About:
-###My homework solutions to the Programming Languages course by University of Washington , that teaches the fundamental concepts and paradigms of programming languages.
+## About:
+### My homework solutions to the Programming Languages course by University of Washington , that teaches the fundamental concepts and paradigms of programming languages.
 
 ## Part A :
 - ML Basics
