@@ -1,6 +1,8 @@
 # Library System
 
-
+  ## About
+    My implementation to a simple version of libraries' classical systems.
+  
   ## Main system Features :
 
   * Adding books.
