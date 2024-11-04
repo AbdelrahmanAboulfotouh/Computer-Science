@@ -1,4 +1,5 @@
 # CS50’s Introduction to Databases with SQL
+![Screenshot from 2024-11-04 19-12-55](https://github.com/user-attachments/assets/f9f0f414-1d11-445f-bc81-8a7e0bfee600)
 
 ## Querying
 - Tables and  Databases.
@@ -20,5 +21,4 @@
 - Column Constraints: CHECK, DEFAULT, NOT NULL, UNIQUE.
 - Altering Tables: DROP TABLE, ALTER TABLE, ADD COLUMN, RENAME COLUMN, DROP COLUMN. 
 
-![Screenshot from 2024-11-04 19-12-55](https://github.com/user-attachments/assets/f9f0f414-1d11-445f-bc81-8a7e0bfee600)
 
