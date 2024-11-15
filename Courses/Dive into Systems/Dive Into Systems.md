@@ -1,4 +1,4 @@
-[Dive Into Systems] (https://diveintosystems.org/book/)
+[Dive Into Systems](https://diveintosystems.org/book/)
 
 0. Introduction<br/>
 1. By the C, the Beautiful C<br/>
