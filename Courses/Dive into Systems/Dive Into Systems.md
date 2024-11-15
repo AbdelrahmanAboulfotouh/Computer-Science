@@ -2,11 +2,8 @@
 Quack quack
 <text style="color: red">ERROR</text>
 </p>
+[Dive Into Systems](color: red)
 
-<p>
-Dive Into Systems
-<text style="color: red">ERROR</text>
-</p>
 0. Introduction<br/>
 1. By the C, the Beautiful C<br/>
   1.1. Getting Started Programming in C<br/>
