@@ -4,9 +4,9 @@ Dive Into Systems
 - 0. Introduction
 - 1. By the C, the Beautiful C
   - 1.1. Getting Started Programming in C
-  - 1.2. Input/Output (printf and scanf)
+  - 1.2. Input/Output (printf and scanf)<br/>
   1.3. Conditionals and Loops<br/>
-  1.4. Functions
+  1.4. Functions<br/>
   1.5. Arrays and Strings
   1.6. Structs
   1.7. Summary
