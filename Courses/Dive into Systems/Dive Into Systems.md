@@ -19,7 +19,7 @@
     2.6. Strings and the String Library<br/>
     2.7. Structs<br/>
     2.8. Input / Output in C<br/>
-###  2.9. Advanced C Features<br/>
+    2.9. Advanced C Features<br/>
       2.9.1. Constants, switch, enum, and typedef<br/>
       2.9.2. Command Line Arguments<br/>
       2.9.3. The void* Type<br/>
