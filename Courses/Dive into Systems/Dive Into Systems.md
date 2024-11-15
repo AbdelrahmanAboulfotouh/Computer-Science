@@ -1,9 +1,9 @@
 # Dive Into Systems. <br/>
 
 ## 0. [Introduction](https://diveintosystems.org/book/introduction.html)<br/>
-## 1. By the C, the Beautiful C<br/>
-    1.1. Getting Started Programming in C<br/>
-    1.2. Input/Output (printf and scanf)<br/>
+## 1. By the C, the Beautiful C <br/>
+    1.1. Getting Started Programming in C <br/>
+    1.2. Input/Output (printf and scanf) <br/>
     1.3. Conditionals and Loops<br/>
     1.4. Functions<br/>
     1.5. Arrays and Strings<br/>
