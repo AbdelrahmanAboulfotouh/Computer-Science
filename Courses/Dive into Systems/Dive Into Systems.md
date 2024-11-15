@@ -1,6 +1,4 @@
-$\color{#FF0000}{like~this!}$
-! [Red text](http://placehold.it/size/background-hex/foreground-hex?text=a123)
-[Dive Into Systems] (color: red)
+[Dive Into Systems] (https://diveintosystems.org/book/)
 
 0. Introduction<br/>
 1. By the C, the Beautiful C<br/>
