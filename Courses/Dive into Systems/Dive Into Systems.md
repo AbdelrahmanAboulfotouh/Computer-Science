@@ -1,7 +1,7 @@
 <p>
 Dive Into Systems
 <text style="color: red">ERROR</text>
-</p><br/>
+</p>
 0. Introduction<br/>
 1. By the C, the Beautiful C<br/>
   1.1. Getting Started Programming in C<br/>
