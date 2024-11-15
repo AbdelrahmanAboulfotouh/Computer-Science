@@ -1,5 +1,5 @@
 $\color{#FF0000}{like~this!}$
-![Red text](http://placehold.it/size/background-hex/foreground-hex?text=a123)
+! [Red text](http://placehold.it/size/background-hex/foreground-hex?text=a123)
 [Dive Into Systems] (color: red)
 
 0. Introduction<br/>
