@@ -2,7 +2,7 @@
 Quack quack
 <text style="color: red">ERROR</text>
 </p>
-[Dive Into Systems](color: red)
+[Dive Into Systems] (color: red)
 
 0. Introduction<br/>
 1. By the C, the Beautiful C<br/>
