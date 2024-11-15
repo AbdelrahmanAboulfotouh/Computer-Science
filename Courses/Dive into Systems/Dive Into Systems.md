@@ -1,7 +1,5 @@
-<p>
-Quack quack
-<text style="color: red">ERROR</text>
-</p>
+$\color{#FF0000}{like~this!}$
+
 [Dive Into Systems] (color: red)
 
 0. Introduction<br/>
