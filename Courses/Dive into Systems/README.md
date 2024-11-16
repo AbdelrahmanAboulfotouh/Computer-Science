@@ -10,7 +10,7 @@
     1.6. Structs<br/>
     1.7. Summary<br/>
     1.8. Exercises<br/>
- 2. A Deeper Dive Into C<br/>
+ **2. A Deeper Dive Into C**<br/>
     2.1. Parts of Program Memory and Scope<br/>
     2.2. C Pointer Variables<br/>
     2.3. Pointers and Functions<br/>
@@ -29,7 +29,7 @@
       2.9.7. Compiling C to Assembly and Compiling Assembly Code<br/>
     2.10. Summary<br/>
     2.11. Exercises<br/>
- 3. C Debugging Tools<br/>
+ **3. C Debugging Tools**<br/>
     3.1. Debugging with GDB<br/>
     3.2. GDB Commands in Detail<br/>
     3.3. Debugging Memory with Valgrind<br/>
@@ -37,7 +37,7 @@
     3.5. Debugging Assembly Code<br/>
     3.6. Debugging Multi-threaded Programs<br/>
     3.7. Summary<br/>
- 4. Binary and Data Representation<br/>
+ **4. Binary and Data Representation**<br/>
     4.1. Number Bases and Unsigned Integers<br/>
     4.2. Converting Between Bases<br/>
     4.3. Signed Binary Integers<br/>
@@ -48,7 +48,7 @@
     4.8. Real Numbers in Binary<br/>
     4.9. Summary<br/>
     4.10. Exercises<br/>
-## 5. What von Neumann Knew: Computer Architecture<br/>
+ **5. What von Neumann Knew: Computer Architecture**<br/>
     5.1. The Origins of Modern Computing<br/>
     5.2. The von Neumann Architecture<br/>
     5.3. Logic Gates<br/>
