@@ -64,7 +64,7 @@
 5.10. Summary<br/>
 5.11. Exercises<br/>
 ## 6. Under the C: Dive into Assembly<br/>
-7. 64-bit x86 Assembly<br/>
+## 7. 64-bit x86 Assembly<br/>
 7.1. Assembly Basics<br/>
 7.2. Common Instructions<br/>
 7.3. Additional Arithmetic Instructions<br/>
