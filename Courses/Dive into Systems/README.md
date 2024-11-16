@@ -2,7 +2,7 @@
 
 ## 0. [Introduction](https://diveintosystems.org/book/introduction.html)<br/>
 ## 1. By the C, the Beautiful C <br/>
-    1.1. Getting Started Programming in C 
+    1.1. [Getting Started Programming in C]((https://diveintosystems.org/book/introduction.html)
     1.2. Input/Output (printf and scanf) 
     1.3. Conditionals and Loops
     1.4. Functions
