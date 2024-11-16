@@ -1,6 +1,6 @@
 # Dive Into Systems <br/>
 
-## [0. Introduction[&#x2713;]](https://diveintosystems.org/book/introduction.html)<br/>
+## [0. Introduction 	&#x1F5F8;](https://diveintosystems.org/book/introduction.html)<br/>
  ## 1. By the C, the Beautiful C <br/>
 1.1. Getting Started Programming in C<br/>
 1.2. Input/Output (printf and scanf)<br/>
