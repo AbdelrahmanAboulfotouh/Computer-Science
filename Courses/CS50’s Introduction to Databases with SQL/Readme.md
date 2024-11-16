@@ -15,10 +15,15 @@
 - Sets: INTERSECT, UNION, EXCEPT.
 - Groups: GROUP BY, HAVING.
 ## Designing
-- Schemas, Normalizing, Data Types, Storage Classes and  Type Affinities.
-- Table Constraints: PRIMARY KEY, FOREIGN KEY.
-- Column Constraints: CHECK, DEFAULT, NOT NULL, UNIQUE.
-- Altering Tables: DROP TABLE, ALTER TABLE, ADD COLUMN, RENAME COLUMN, DROP COLUMN. 
+- Designing
+- MBTA
+- Normalization
+- CREATE TABLE
+- Data Types and Storage Classes
+- Table Constraints
+- Column Constraints
+- Altering Tables
+
 ## Writing
 - Inserting
 - Importing
