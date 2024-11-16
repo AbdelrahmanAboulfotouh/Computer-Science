@@ -1,20 +1,38 @@
 # Dive Into Systems <br
 
-
-                        
 <h4 class="center">Current Progress</h4>
-<div class="progress ">
-<div
-class="progress-bar "
-role="progressbar"
-style="width: 37%;"
-aria-valuenow="37"
-aria-valuemin="0"
-aria-valuemax="100"
->
-</div>
-</div>
+    <div class="progress ">
+        <div
+            class="progress-bar "
+            role="progressbar"
+            style="width: 37%;"
+            aria-valuenow="37"
+            aria-valuemin="0"
+            aria-valuemax="100"
+        >
+        </div>
+    </div>
+    3 of 8 weeks complete.
 
+    
+    <div class="row mt-1">
+      <div class="col-md-12">
+        <ul class="stepper stepper-vertical">
+
+            
+                <li class="active">
+                    <a class="nohover" href="#!">
+                        <span class="circle">0</span>
+                        <span class="label">Week 0</span>
+                    </a>
+                    <div class="step-content" style="width: 100%">
+                        
+                            <p>Complete Cyberchase, 36 Views or Normals, and Players.</p>
+                        
+                        
+                            <div>
+                                <span>
+     
 
 
 
