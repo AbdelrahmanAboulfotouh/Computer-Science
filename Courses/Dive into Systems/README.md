@@ -10,16 +10,16 @@
 1.6. Structs<br/>
 1.7. Summary<br/>
 1.8. Exercises<br/>
- **2. A Deeper Dive Into C**<br/>
-    2.1. Parts of Program Memory and Scope<br/>
-    2.2. C Pointer Variables<br/>
-    2.3. Pointers and Functions<br/>
-    2.4. Dynamic Memory Allocation<br/>
-    2.5. Arrays in C<br/>
-    2.6. Strings and the String Library<br/>
-    2.7. Structs<br/>
-    2.8. Input / Output in C<br/>
-    2.9. Advanced C Features<br/>
+ ## 2. A Deeper Dive Into C<br/>
+2.1. Parts of Program Memory and Scope<br/>
+2.2. C Pointer Variables<br/>
+2.3. Pointers and Functions<br/>
+2.4. Dynamic Memory Allocation<br/>
+2.5. Arrays in C<br/>
+2.6. Strings and the String Library<br/>
+2.7. Structs<br/>
+2.8. Input / Output in C<br/>
+2.9. Advanced C Features<br/>
       2.9.1. Constants, switch, enum, and typedef<br/>
       2.9.2. Command Line Arguments<br/>
       2.9.3. The void* Type<br/>
