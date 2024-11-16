@@ -150,7 +150,6 @@
 15.1. Hardware Acceleration and CUDA<br/>
 15.2. Distributed Memory Systems<br/>
 15.3. To Exascale and Beyond<br/>
-## 16. Appendix 1: Chapter 1 for Java Programmers<br/>
 ## 17. Appendix 2: Using Unix<br/>
 17.1. Unix Command Line and the Unix File System<br/>
 17.2. Man and the Unix Manual<br/>
