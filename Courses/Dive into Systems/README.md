@@ -1,4 +1,6 @@
 # Dive Into Systems <br
+
+
                         
 <h4 class="center">Current Progress</h4>
 <div class="progress ">
@@ -12,6 +14,10 @@ aria-valuemax="100"
 >
 </div>
 </div>
+
+
+
+
 
 ## [0. Introduction 	&#x1F5F8;](https://diveintosystems.org/book/introduction.html)<br/>
  ## 1. By the C, the Beautiful C <br/>
