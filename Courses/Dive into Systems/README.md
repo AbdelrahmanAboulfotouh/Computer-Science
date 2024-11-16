@@ -1,5 +1,16 @@
 # Dive Into Systems <br/>
-
+<h4 class="center">Current Progress</h4>
+    <div class="progress ">
+        <div
+            class="progress-bar "
+            role="progressbar"
+            style="width: 37%;"
+            aria-valuenow="37"
+            aria-valuemin="0"
+            aria-valuemax="100"
+        >
+        </div>
+    </div>
 ## [0. Introduction 	&#x1F5F8;](https://diveintosystems.org/book/introduction.html)<br/>
  ## 1. By the C, the Beautiful C <br/>
 1.1. Getting Started Programming in C<br/>
