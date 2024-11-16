@@ -15,6 +15,9 @@
 - Sets: INTERSECT, UNION, EXCEPT.
 - Groups: GROUP BY, HAVING.
 ## Designing
+> Schemas. Normalizing. Data Types. Storage Classes. Type Affinities. Table Constraints: PRIMARY KEY, FOREIGN KEY. Column Constraints: CHECK, DEFAULT, NOT NULL, UNIQUE. Altering Tables: DROP TABLE, ALTER >TABLE, ADD COLUMN, RENAME COLUMN, DROP COLUMN. Charlie.
+
+
 - Designing
 - MBTA
 - Normalization
