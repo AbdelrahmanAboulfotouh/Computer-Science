@@ -19,5 +19,14 @@
 - Table Constraints: PRIMARY KEY, FOREIGN KEY.
 - Column Constraints: CHECK, DEFAULT, NOT NULL, UNIQUE.
 - Altering Tables: DROP TABLE, ALTER TABLE, ADD COLUMN, RENAME COLUMN, DROP COLUMN. 
+## Writing
+- Inserting
+- Importing
+- Deleting
+- Foreign Key Constraints
+- Updating
+- Triggers
+
+
 
 
