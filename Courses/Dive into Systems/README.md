@@ -164,6 +164,8 @@
 17.10 Timing<br/>
 17.11 Command History<br/>
 17.12 I/0 Redirection<br/>
+
+![Chapter dependency graph](https://diveintosystems.org/book/_images/chaptdeps.png "Chapter dependency graph")
 17.13 Pipes<br/>
 17.14 Dot Files and .bashrc<br/>
 17.15 Shell Programming<br/>
