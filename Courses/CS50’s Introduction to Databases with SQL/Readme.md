@@ -15,7 +15,7 @@
 - Range Conditions
 - ORDER BY
 - Aggregate Functions
-- Conclusion
+- 
 ## [Relating](https://cs50.harvard.edu/sql/2024/notes/1/)
 >Relational Databases. Relationships: One-to-one, One-to-many, Many-to-many. Entity Relationship Diagrams. Keys: Primary Keys, Foreign Keys. Subqueries. IN. Joins: INNER JOIN, Outer Joins, LEFT JOIN, >RIGHT JOIN, FULL JOIN, NATURAL JOIN. Sets: INTERSECT, UNION, EXCEPT. Groups: GROUP BY, HAVING.
 
