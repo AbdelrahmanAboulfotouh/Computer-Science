@@ -21,4 +21,3 @@
 - Altering Tables: DROP TABLE, ALTER TABLE, ADD COLUMN, RENAME COLUMN, DROP COLUMN. 
 
 
-![Chapter dependency graph](https://cs50.me/cs50sql "Chapter dependency graph")
