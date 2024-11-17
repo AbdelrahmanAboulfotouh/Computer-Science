@@ -32,7 +32,6 @@
 
 
 - Designing
-- MBTA
 - Normalization
 - CREATE TABLE
 - Data Types and Storage Classes
