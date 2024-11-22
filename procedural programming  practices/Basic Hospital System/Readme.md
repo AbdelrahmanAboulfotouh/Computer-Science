@@ -31,8 +31,6 @@ My implementation to a simple Hospitals' classical systems.
 7. **Simple User Interface**:
    - The program presents a menu with options for adding new patients, printing the list of patients, handling doctor-patient interactions, and exiting the     
      system.
-## Project Demo
-[Uploading Demo.webm…]()
 
 
 
