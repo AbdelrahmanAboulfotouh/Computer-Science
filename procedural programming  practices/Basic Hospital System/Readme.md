@@ -28,9 +28,7 @@ My implementation to a simple Hospitals' classical systems.
 6. **Error Handling**:
    - The system includes validation for incorrect user inputs such as out-of-range specialization numbers or invalid status values.
    - It also handles full queues and informs the patient when no further spots are available.
-7. **Simple User Interface**:
-   - The program presents a menu with options for adding new patients, printing the list of patients, handling doctor-patient interactions, and exiting the     
-     system.
+
 ## Demo
 [Demo.webm](https://github.com/user-attachments/assets/3271cceb-8c05-47b9-8e2b-64a3fb78b2f1)
 
