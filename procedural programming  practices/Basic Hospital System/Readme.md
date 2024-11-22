@@ -1,7 +1,7 @@
 
 # Hospital System
 ## About:
-    My implementation to a simple Hospitals' classical systems.
+My implementation to a simple Hospitals' classical systems.
 
 ## Main features of the Project:
 
