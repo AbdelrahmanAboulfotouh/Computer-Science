@@ -4,157 +4,33 @@
 # Data Structures and Algorithms
 ## by Jenny's Lectures CS IT
 
-1.1 Arrays in Data Structure | Declaration, Initialization, Memory representation
-1.2 Array Operations - Traversal, Insertion | Explanation with C Program | DSA Course
-1.3 Array Operations | Deletion from Array | Explanation with Code | Data Structure
-1.4 Pointers and Arrays | Data structure Tutorials
-Jenny's Lectures CS IT
-1.5 Introduction to Two Dimensional (2D) Arrays | Implementation of 2D Arrays |Memory representation
-Jenny's Lectures CS IT
-•
-432K views • 5 years ago
-
-6
-
-24:49
-Now playing
-1.6 Pointers and 2-D Arrays | Two dimensional Array | Data Structures & Algorithm Tutorials
-Jenny's Lectures CS IT
-•
-327K views • 5 years ago
-
-7
-
-22:11
-Now playing
-2.1 Introduction to Linked List | Need of Linked List | DSA Tutorials
-Jenny's Lectures CS IT
-•
-1.3M views • 5 years ago
-
-8
-
-13:15
-Now playing
-2.2 Types of Linked List in Data Structures | DSA Full Course
-Jenny's Lectures CS IT
-•
-756K views • 5 years ago
-
-9
-2.3 Arrays vs Linked List | Data structures
-Jenny's Lectures CS IT
-•
-475K views • 5 years ago
-
-10
-2.4 Linked List Implementation in C/C++ | Creation and Display | DSA Tutorials
-Jenny's Lectures CS IT
-•
-1.8M views • 5 years ago
-
-11
-2.5 Insertion of a Node in Linked List(at Beginning,End,Specified Position)with Code | DSA Tutorials
-Jenny's Lectures CS IT
-•
-1.3M views • 5 years ago
-
-12
-2.6 Deletion of a node from Linked List (from beginning, end, specified position) | DSA Tutorials
-Jenny's Lectures CS IT
-•
-653K views • 5 years ago
-
-13
-2.7 Find length of Linked List- Iterative approach | DSA Tutorials
-Jenny's Lectures CS IT
-•
-204K views • 5 years ago
-
-14
-2.8 Reverse a Linked List - Iterative Method | Data Structure Tutorials
-Jenny's Lectures CS IT
-•
-437K views • 5 years ago
-
-15
-2.9 Introduction to Doubly Linked List in Data structures | DSA Tutorials
-Jenny's Lectures CS IT
-•
-375K views • 5 years ago
-
-16
-2.10 Implementation of Doubly Linked List - Data Structures
-Jenny's Lectures CS IT
-•
-425K views • 5 years ago
-
-17
-2.11 Insertion in Doubly Linked List(beginning, end, specific position) | Data Structures
-Jenny's Lectures CS IT
-•
-439K views • 5 years ago
-
-18
-2.12 Deletion from Doubly Linked List (beginning,end,specific position) | Data Structures Tutorials
-Jenny's Lectures CS IT
-•
-248K views • 5 years ago
-
-19
-2.13 Reverse a Doubly Linked List | Data Structures & Algorithm Tutorials
-Jenny's Lectures CS IT
-•
-172K views • 5 years ago
-
-20
-2.14 Circular Linked List in Data Structure | Creation and Display | DSA Course
-Jenny's Lectures CS IT
-•
-338K views • 5 years ago
-
-21
-2.15 Implementation of Circular linked list in C | Data Structure Tutorials
-Jenny's Lectures CS IT
-•
-181K views • 5 years ago
-
-22
-2.16 Insertion in Circular Linked List | Data Structure Tutorials
-Jenny's Lectures CS IT
-•
-220K views • 5 years ago
-
-23
-2.17 Deletion of a Node from Circular Linked List(beginning, end, given position) | DSA Tutorials
-Jenny's Lectures CS IT
-•
-139K views • 5 years ago
-
-24
-2.18 Reverse a Circular Linked List | Data Structure Tutorials
-Jenny's Lectures CS IT
-•
-84K views • 5 years ago
-
-25
-2.19 Implementation of Doubly Circular Linked List| Creation and Display | Data Structures
-Jenny's Lectures CS IT
-•
-112K views • 5 years ago
-
-26
-2.20 Insertion in Doubly Circular Linked List | Data Structure & Algorithm Tutorials
-Jenny's Lectures CS IT
-•
-90K views • 5 years ago
-
-27
-2.21 Deletion from Doubly Circular Linked List | Data Structure & Algorithm Course
-Jenny's Lectures CS IT
-•
-69K views • 5 years ago
-
+- 1.1 Arrays in Data Structure | Declaration, Initialization, Memory representation
+- 1.2 Array Operations - Traversal, Insertion | Explanation with C Program | DSA Course
+- 1.3 Array Operations | Deletion from Array | Explanation with Code | Data Structure
+- 1.4 Pointers and Arrays | Data structure Tutorials
+- 1.5 Introduction to Two Dimensional (2D) Arrays | Implementation of 2D Arrays |Memory representation
+- 1.6 Pointers and 2-D Arrays | Two dimensional Array | Data Structures & Algorithm Tutorials
+- 2.1 Introduction to Linked List | Need of Linked List | DSA Tutorials
+- 2.2 Types of Linked List in Data Structures | DSA Full Course
+- 2.3 Arrays vs Linked List | Data structures
+- 2.4 Linked List Implementation in C/C++ | Creation and Display | DSA Tutorials
+- 2.5 Insertion of a Node in Linked List(at Beginning,End,Specified Position)with Code | DSA Tutorials
+- 2.6 Deletion of a node from Linked List (from beginning, end, specified position) | DSA Tutorials
+- 2.7 Find length of Linked List- Iterative approach | DSA Tutorials
+- 2.8 Reverse a Linked List - Iterative Method | Data Structure Tutorials
+- 2.9 Introduction to Doubly Linked List in Data structures | DSA Tutorials
+- 2.10 Implementation of Doubly Linked List - Data Structures
+- 2.11 Insertion in Doubly Linked List(beginning, end, specific position) | Data Structures
+- 2.12 Deletion from Doubly Linked List (beginning,end,specific position) | Data Structures Tutorials
+- 2.13 Reverse a Doubly Linked List | Data Structures & Algorithm Tutorials
+- 2.14 Circular Linked List in Data Structure | Creation and Display | DSA Course
+- 2.15 Implementation of Circular linked list in C | Data Structure Tutorials
+- 2.16 Insertion in Circular Linked List | Data Structure Tutorials
+- 2.17 Deletion of a Node from Circular Linked List(beginning, end, given position) | DSA Tutorials
+- 2.18 Reverse a Circular Linked List | Data Structure Tutorials
+- 2.19 Implementation of Doubly Circular Linked List| Creation and Display | Data Structures
+- 2.20 Insertion in Doubly Circular Linked List | Data Structure & Algorithm Tutorials
+- 2.21 Deletion from Doubly Circular Linked List | Data Structure & Algorithm Course
 28
 3.1 Stack in Data Structure | Introduction to Stack | Data Structures Tutorials
 Jenny's Lectures CS IT
