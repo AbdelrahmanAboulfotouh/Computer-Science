@@ -7,7 +7,7 @@
 1.1. [Getting Started Programming in C	&#x1F5F8;](https://diveintosystems.org/book/C1-C_intro/getting_started.html#TabPythonC)<br/>
 1.2. [Input/Output (printf and scanf) &#x1F5F8;](https://diveintosystems.org/book/C1-C_intro/input_output.html)<br/>
 1.3. [Conditionals and Loops &#x1F5F8;](https://diveintosystems.org/book/C1-C_intro/conditionals.html)<br/>
-1.4. Functions<br/>
+1.4. [Functions &#x1F5F8;](https://diveintosystems.org/book/C1-C_intro/functions.html)<br/>
 1.5. Arrays and Strings<br/>
 1.6. Structs<br/>
 1.7. Summary<br/>
