@@ -1,4 +1,4 @@
-# CS50’s Introduction to Databases with SQL
+# [CS50’s Introduction to Databases with SQL](https://cs50.harvard.edu/sql/2024/)
 
 ## [Querying](https://cs50.harvard.edu/sql/2024/notes/0/)
 >Tables. Databases. Database Management Systems. SQL. SQLite. SELECT. LIMIT. OFFSET. WHERE. Comparisons. NOT. NULL. Pattern Matching. LIKE. Compound Conditions. Range Conditions. Ordering. Aggregate >Functions. ROUND. DISTINCT.
@@ -48,6 +48,7 @@
 - Foreign Key Constraints
 - Updating
 - Triggers
+## [Viewing]()
 
 
 
