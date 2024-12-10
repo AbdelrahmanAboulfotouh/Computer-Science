@@ -43,6 +43,16 @@
 - Securing
 - Triggers with Views
 
-
+##[Optimizing](https://cs50.harvard.edu/sql/2024/notes/5/#index)
+- Optimizing
+- Indexes
+- Query Plans
+- Covering Indexes
+- B-Trees
+- Partial Indexes
+- Vacuum
+- Transactions
+- Race Conditions
+- Locks
 
 
