@@ -1,5 +1,4 @@
 # [CS50’s Introduction to Databases with SQL](https://cs50.harvard.edu/sql/2024/)
-![CS50 SQL](https://www.classcentral.com/report/wp-content/uploads/2020/01/cs50-certificate-2022.png)
 ## [Querying](https://cs50.harvard.edu/sql/2024/notes/0/)
 - SELECT
 - LIMIT
