@@ -51,6 +51,17 @@
 - Partial Indexes
 - Vacuum
 - Transactions
+## [Scaling](https://cs50.harvard.edu/sql/2024/notes/6/)
+- Scalability
+- MySQL
+- Stored Procedures
+- PostgreSQL
+- Replication
+- Sharding
+- Access Control
+- SQL Injection Attacks
+- Prepared Statements
+
 - Race Conditions
 - Locks
 
