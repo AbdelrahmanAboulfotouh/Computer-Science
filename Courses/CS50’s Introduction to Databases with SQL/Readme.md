@@ -51,6 +51,8 @@
 - Partial Indexes
 - Vacuum
 - Transactions
+- Race Conditions
+- Locks
 ## [Scaling](https://cs50.harvard.edu/sql/2024/notes/6/)
 - Scalability
 - MySQL
@@ -62,7 +64,5 @@
 - SQL Injection Attacks
 - Prepared Statements
 
-- Race Conditions
-- Locks
 
 
