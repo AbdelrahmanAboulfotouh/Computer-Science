@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <assert.h>
+#include <sstream>
 using namespace std;
 struct Node{
     int data{};
@@ -18,8 +19,96 @@ class Linkedlist{
 private:
     Node* Head{};
     Node* tail{};
-    int lenght;
+    int lenght {};
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    vector<Node*> debug_data;	// add/remove nodes you use
+
+    void debug_add_node(Node* node) {
+        debug_data.push_back(node);
+    }
+    void debug_remove_node(Node* node) {
+        auto it = std::find(debug_data.begin(), debug_data.end(), node);
+        if (it == debug_data.end())
+            cout << "Node does not exist\n";
+        else
+            debug_data.erase(it);
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 public:
+    // Below 2 deletes prevent copy and assign to avoid this mistake
+    Linkedlist() {
+    }
+    Linkedlist(const Linkedlist&) = delete;
+    Linkedlist &operator=(const Linkedlist &another) = delete;
+
+    void debug_print_address() {
+        for (Node* cur = Head; cur; cur = cur->next)
+            cout << cur << "," << cur->data << "\t";
+        cout << "\n";
+    }
+
+    void debug_print_node(Node* node, bool is_seperate = false) {
+        if (is_seperate)
+            cout << "Sep: ";
+        if (node == nullptr) {
+            cout << "nullptr\n";
+            return;
+        }
+        cout << node->data << " ";
+        if (node->next == nullptr)
+            cout << "X ";
+        else
+            cout << node->next->data << " ";
+
+        if (node == Head)
+            cout << "head\n";
+        else if (node == tail)
+            cout << "tail\n";
+        else
+            cout << "\n";
+    }
+    void debug_print_list(string msg = "") {
+        if (msg != "")
+            cout << msg << "\n";
+        for (int i = 0; i < (int) debug_data.size(); ++i)
+            debug_print_node(debug_data[i]);
+        cout << "************\n"<<flush;
+    }
+
+    string debug_to_string() {
+        if (lenght == 0)
+            return "";
+        ostringstream oss;
+        for (Node* cur = Head; cur; cur = cur->next) {
+            oss << cur->data;
+            if (cur->next)
+                oss << " ";
+        }
+        return oss.str();
+    }
+
+    void debug_verify_data_integrity() {
+        if (lenght == 0) {
+            assert(Head == nullptr);
+            assert(tail == nullptr);
+        } else {
+            assert(Head != nullptr);
+            assert(tail != nullptr);
+            if (lenght == 1)
+                assert(Head == tail);
+            else
+                assert(Head != tail);
+            assert(!tail->next);
+        }
+        int len = 0;
+        for (Node* cur = Head; cur; cur = cur->next, len++)
+            assert(len < 10000);	// Consider infinite cycle?
+        assert(lenght == len);
+        assert(lenght == (int)debug_data.size());
+    }
+
+    ////////////////////////////////////////////////////////////Start///////////////////////////////////////////////////
+
     void print(){
         for(Node* current = Head; current ; current = current->next )
         {
@@ -31,12 +120,18 @@ public:
     {
         Node* newnode = new Node(value);
         if(Head == nullptr)
+        {
             Head = tail = newnode;
+            debug_add_node(newnode);
+        }
         else
         {
             tail->next = newnode;
             tail = newnode;
+            debug_add_node(newnode);
         }
+        ++lenght;
+
     }
     //time o(n), space o(1)
     Node* get_nth(int n)
@@ -130,7 +225,7 @@ public:
         return get_nth(lenght - idx +1);
 
     }
- 
+
     //#5(easy) time o(n) space o(1)
     bool is_same(const Linkedlist &other)
     {
@@ -159,15 +254,91 @@ public:
         }
         return true;
     }
+    void delet_node(Node* node)
+    {
+        debug_remove_node(node);
+        delete node;
+        --lenght;
+    }
+    void delete_first()
+    {
+        if(Head)
+        {
+            Node* cur = Head;
+            Head = Head->next;
+            delet_node(cur);
+        }
+        if(Head == nullptr)
+            tail = nullptr;
+        debug_verify_data_integrity();
+    }
+    void delete_last()
+    {
+        if(lenght<=1)
+            delete_first();
+        Node* pre = get_nth(lenght - 1);
+        debug_remove_node(tail);
 
+        delet_node(tail);
+        tail = pre;
+        tail = nullptr;
+        debug_verify_data_integrity();
+    }
+    void delete_nth(int idx)
+    {
+        assert(idx >=1 and idx <= lenght);
+        if(lenght <= 1)
+            delete_first();
+        Node* pre = get_nth(idx - 1);
+        Node* cur = pre->next;
+        pre->next = cur->next;
+        if(cur->next == nullptr)
+            tail = pre;
 
+        delet_node(cur);
+       // debug_remove_node(cur);
 
+        debug_verify_data_integrity();
+    }
+
+    // 1# HW2 easy
+    void delete_node_with_key(int value)
+    {
+        int idx{0};
+        bool f = false;
+        for(Node* cur = Head; cur ; cur=cur->next)
+        {
+            if (cur->data == value)
+            {
+                f = true;
+                break;
+            }
+            ++idx;
+        }
+        if(f)
+        {
+            if(idx < 1)
+                delete_first();
+            else
+                delete_nth(idx);
+
+        }
+
+    }
+    void get_length()
+    {
+        cout<<lenght;
+    }
 };
 //#6 (easy)  LinkedList with only a Head pointer
 class LinkedList{
 private:
     Node* Head;
 public:
+
+
+
+
     // time O(n) space o(1)
     void print(){
         for(Node* cur = Head;cur; cur = cur->next)
@@ -190,5 +361,6 @@ public:
             if(cur->next == nullptr)
                 return cur;
     }
+
 
 };
