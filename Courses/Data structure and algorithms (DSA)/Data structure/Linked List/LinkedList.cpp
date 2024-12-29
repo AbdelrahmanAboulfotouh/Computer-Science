@@ -325,9 +325,15 @@ public:
         }
 
     }
-    void get_length()
+
+    //Problem #2: Swap each pair vales HW2 easy
+    void swap_pairs()
     {
-        cout<<lenght;
+        if(lenght <=1)
+            return;
+        for( Node* cur  = Head ; cur and cur->next ; cur = cur->next->next)
+            swap(cur->data,cur->next->data);
+
     }
 };
 //#6 (easy)  LinkedList with only a Head pointer
