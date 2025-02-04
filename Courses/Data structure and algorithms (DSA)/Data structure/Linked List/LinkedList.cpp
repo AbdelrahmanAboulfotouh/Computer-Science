@@ -1,8 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <assert.h>
-#include <sstream>
+
+#include <bits/stdc++.h>
 using namespace std;
 struct Node{
     int data{};
@@ -296,7 +293,7 @@ public:
             tail = pre;
 
         delet_node(cur);
-       // debug_remove_node(cur);
+        // debug_remove_node(cur);
 
         debug_verify_data_integrity();
     }
@@ -335,6 +332,67 @@ public:
             swap(cur->data,cur->next->data);
 
     }
+    //Problem #3: Reverse list nodes Hw 2
+    Node* Reverse_list(Node* Head ) {
+        Node *cur = Head->next;
+        Node *pre = Head;
+        for (Node *copy = cur; copy; copy = copy->next)
+        {
+            cur->next =pre;
+            pre = cur ;
+            cur = copy;
+        }
+
+        Head->next = nullptr;
+        tail = Head;
+        Head = cur ;
+        return Head;
+    }
+    void delete_even_positions()
+    {
+        int c{1};
+        Node* pre = Head;
+        Node* cur = Head;
+        while(cur) {
+            if (c % 2 == 0)
+            {
+                Node *tmp = cur;
+                if (cur->next == nullptr)
+                {
+                    pre->next = nullptr;
+                    delete tmp;
+                    break;
+                } else
+                {
+                    pre->next = cur->next;
+                    cur =cur->next;
+                    delete tmp;
+                }
+            }
+            else
+            {
+                pre = cur;
+                cur = cur->next;
+            }
+            ++c;
+        }
+
+    }
+    void insert_sorted(int value)
+    {
+        if(lenght < 1)
+            insert_back(value);
+        else
+        {
+            if(get_nth(lenght-1)->data <= value)
+                insert_back(value);
+            else
+            {
+                insert_back(value);
+                swap(get_nth(lenght-1)->data, get_nth(lenght-2)->data);
+            }
+        }
+    }
 };
 //#6 (easy)  LinkedList with only a Head pointer
 class LinkedList{
@@ -370,3 +428,14 @@ public:
 
 
 };
+int main()
+{
+    Linkedlist obj ;
+    obj.insert_sorted(1);
+    obj.insert_sorted(2);
+    obj.insert_sorted(10);
+    obj.insert_sorted(4);
+    obj.insert_sorted(7);
+    obj.print();
+    return 0;
+}
