@@ -107,7 +107,7 @@ public:
     ////////////////////////////////////////////////////////////Start///////////////////////////////////////////////////
 
     void print(){
-
+    cout<<Head<<"  "<<tail<<endl;
         for(Node* current = Head; current ; current = current->next )
         {
             cout<<current->data<<" ";
@@ -396,6 +396,8 @@ public:
     }
     void swap_head_by_tail()
     {
+        if(lenght < 2)
+            return;
         if(lenght < 3)
         {
            tail->next =Head;
@@ -408,13 +410,9 @@ public:
             auto pre = Head;
             for(; pre->next->next ; pre = pre->next);
             pre->next = Head;
-            Node* tmp = Head;
+            tail->next = Head->next ;
             Head->next = nullptr;
-            tail->next = tmp->next ;
-            // swaping
-            tmp = tail ;
-            tail = Head ;
-            Head = tmp ;
+            swap(Head,tail);
 
         }
     }
@@ -456,11 +454,10 @@ public:
 int main()
 {
     Linkedlist obj ;
-    obj.insert_sorted(1);
-    obj.insert_sorted(2);
-    obj.insert_sorted(0);
-    obj.insert_sorted(5);
-   obj.print();
+    obj.insert_back(1);
+    obj.insert_back(2);
+    obj.insert_back(3);
+    obj.print();
    obj.swap_head_by_tail();
    obj.print();
     return 0;
