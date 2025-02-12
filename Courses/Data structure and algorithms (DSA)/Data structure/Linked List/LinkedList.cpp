@@ -107,6 +107,7 @@ public:
     ////////////////////////////////////////////////////////////Start///////////////////////////////////////////////////
 
     void print(){
+
         for(Node* current = Head; current ; current = current->next )
         {
             cout<<current->data<<" ";
@@ -393,6 +394,30 @@ public:
             }
         }
     }
+    void swap_head_by_tail()
+    {
+        if(lenght < 3)
+        {
+           tail->next =Head;
+           Head  = tail ;
+           tail = Head->next;
+           tail->next = nullptr;
+        }
+        else
+        {
+            auto pre = Head;
+            for(; pre->next->next ; pre = pre->next);
+            pre->next = Head;
+            Node* tmp = Head;
+            Head->next = nullptr;
+            tail->next = tmp->next ;
+            // swaping
+            tmp = tail ;
+            tail = Head ;
+            Head = tmp ;
+
+        }
+    }
 };
 //#6 (easy)  LinkedList with only a Head pointer
 class LinkedList{
@@ -433,9 +458,10 @@ int main()
     Linkedlist obj ;
     obj.insert_sorted(1);
     obj.insert_sorted(2);
-    obj.insert_sorted(10);
-    obj.insert_sorted(4);
-    obj.insert_sorted(7);
-    obj.print();
+    obj.insert_sorted(0);
+    obj.insert_sorted(5);
+   obj.print();
+   obj.swap_head_by_tail();
+   obj.print();
     return 0;
 }
