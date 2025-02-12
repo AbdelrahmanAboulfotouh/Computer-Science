@@ -107,7 +107,6 @@ public:
     ////////////////////////////////////////////////////////////Start///////////////////////////////////////////////////
 
     void print(){
-    cout<<Head<<"  "<<tail<<endl;
         for(Node* current = Head; current ; current = current->next )
         {
             cout<<current->data<<" ";
@@ -416,6 +415,21 @@ public:
 
         }
     }
+    void left_rotate(int k)
+    {
+        k%=lenght;
+        if(!k)
+            return;
+        Node* cur = Head;
+        for(int i{1};i<k;++i)
+            cur = cur->next;
+        tail->next = Head;
+        Head = cur->next;
+        tail = cur;
+        tail->next = nullptr;
+
+
+    }
 };
 //#6 (easy)  LinkedList with only a Head pointer
 class LinkedList{
@@ -458,7 +472,7 @@ int main()
     obj.insert_back(2);
     obj.insert_back(3);
     obj.print();
-   obj.swap_head_by_tail();
+   obj.left_rotate(4);
    obj.print();
     return 0;
 }
