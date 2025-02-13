@@ -430,6 +430,24 @@ public:
 
 
     }
+    void Remove_duplicates()
+    {
+        for(auto cur = Head; cur ; cur=cur->next)
+        {
+            for(auto ser = cur->next , pre =cur ; ser;  )
+            {
+                if(cur->data == ser->data)
+                {
+                    pre->next = ser->next;
+                    auto  tmp = ser;
+                    delet_node(tmp);
+                    ser = pre->next;
+                }
+                else
+                    ser = ser->next,pre = pre->next;
+            }
+        }
+    }
 };
 //#6 (easy)  LinkedList with only a Head pointer
 class LinkedList{
@@ -465,14 +483,3 @@ public:
 
 
 };
-int main()
-{
-    Linkedlist obj ;
-    obj.insert_back(1);
-    obj.insert_back(2);
-    obj.insert_back(3);
-    obj.print();
-   obj.left_rotate(4);
-   obj.print();
-    return 0;
-}
