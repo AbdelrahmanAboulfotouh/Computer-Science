@@ -476,7 +476,41 @@ public:
         }
 
         }
+void move_to_back(int key)
+{
+        Node* cur = Head;
+        Node* pre = Head;
+        for(int i{0};i<lenght;++i)
+        {
+            if(!cur or cur == tail)
+                break;
+            if(key == cur->data)
+            {
+                Node* tmp = cur;
+                if(Head == cur)
+                {
+                    Head =Head->next;
+                    cur = Head;
 
+                }
+                else
+                {
+                    pre->next = cur->next;
+                    cur = cur->next;
+                }
+                tail->next =tmp;
+                tmp->next = nullptr;
+                tail = tmp;
+
+
+            }
+            else
+            {
+                pre = cur;
+                cur = cur->next;
+            }
+        }
+}
 };
 //#6 (easy)  LinkedList with only a Head pointer
 class LinkedList{
@@ -512,3 +546,19 @@ public:
 
 
 };
+int main()
+{
+    Linkedlist obj ;
+    obj.insert_back(1);
+    obj.insert_back(1);
+    obj.insert_back(1);
+    obj.insert_back(2);
+    obj.insert_back(2);
+    obj.insert_back(3);
+
+    obj.print();
+
+obj.move_to_back(0);
+obj.print();
+    return 0;
+}
