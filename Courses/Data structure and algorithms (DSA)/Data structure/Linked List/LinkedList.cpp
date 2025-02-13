@@ -448,6 +448,35 @@ public:
             }
         }
     }
+    void Remove_last_occurance(int key)
+    {
+        Node* del_cur = nullptr;
+        Node* pre = nullptr;
+        for(auto cur = Head , Pre = Head;cur;Pre = cur ,cur = cur->next)
+        {
+            if(key == cur->data)
+            {
+                del_cur = cur;
+                pre = Pre ;
+            }
+        }
+        if(del_cur != nullptr)
+        {
+            if(del_cur == Head )
+            {
+                Head = Head->next;
+            }
+            else if(del_cur == tail)
+            {
+                tail  = pre;
+            }
+
+            pre->next = del_cur->next;
+            delete del_cur;
+        }
+
+        }
+
 };
 //#6 (easy)  LinkedList with only a Head pointer
 class LinkedList{
