@@ -510,6 +510,17 @@ void move_to_back(int key)
                 cur = cur->next;
             }
         }
+
+}
+int get_max_recursive( Node* Head = nullptr, bool is_first_time = true)
+{
+    if(is_first_time)
+        return get_max_recursive(this->Head , false);
+    // base case
+    if(Head == nullptr)
+        return INT_MIN;
+    return std::max(Head->data, get_max_recursive(Head->next, false));
+
 }
 };
 //#6 (easy)  LinkedList with only a Head pointer
@@ -553,12 +564,11 @@ int main()
     obj.insert_back(1);
     obj.insert_back(1);
     obj.insert_back(2);
-    obj.insert_back(2);
+    obj.insert_back(7);
     obj.insert_back(3);
 
     obj.print();
 
-obj.move_to_back(0);
-obj.print();
+cout<< obj.get_max_recursive();
     return 0;
 }
