@@ -19,7 +19,7 @@ class  DoulbyLinkedlist
 private:
     Node* Head {};
     Node* Tail {};
-    int length();
+    int Length { };
 public:
     void print_Reversed()
     {
@@ -95,5 +95,42 @@ public:
             }
         }
     }
-
+    void delete_front()
+    {
+        if(!Head)
+            return;
+        Node* tmp = Head;
+        Head= Head->next;
+        Head->pre = nullptr;
+        delete tmp;
+        if(!Head)
+            Tail = nullptr;
+    }
+Node* delete_and_link (Node* cur)
+{
+        Node* ret = cur->pre;
+    link(cur->pre, cur->next);
+    delete cur ;
+    return ret;
+}
+void  delete_node_with_key(int key)
+{
+        if(!Length)
+            return;
+        if(Head->data == key)
+            delete_front();
+        else
+        {
+            for(Node* cur = Head ; cur ; cur = cur->next)
+            {
+                if(cur->data == key)
+                {
+                    cur = delete_and_link(cur);
+                    if(!cur->next)
+                        Tail = cur;
+                    break;
+                }
+            }
+        }
+}
 };
