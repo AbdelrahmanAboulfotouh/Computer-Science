@@ -184,5 +184,26 @@ bool is_balindrome()
         }
     return true;
 }
+int find_middle()
+{
+        int ans{ };
+        for(auto ltr = Head, rtl = Tail; rtl ; rtl = rtl->pre, ltr = ltr->next)
+        {
+            if(ltr->next == rtl or rtl == ltr)
+                ans = rtl->data;
 
+        }
+    return ans;
+}
 };
+int main()
+
+{
+    DoulbyLinkedlist obj;
+    obj.insert_back(1);
+  
+    obj.print();
+    cout<<obj.find_middle();
+
+    return  0 ;
+}
