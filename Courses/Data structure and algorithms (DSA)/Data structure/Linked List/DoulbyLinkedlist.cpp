@@ -21,6 +21,12 @@ private:
     Node* Tail {};
     int Length { };
 public:
+    void print()
+    {
+        for(Node* cur = Head;cur;cur=cur->next)
+            cout<<cur->data<<" ";
+        cout<<endl;
+    }
     void print_Reversed()
     {
         for(Node* cur =Tail ; cur ; cur = cur->next)
@@ -148,5 +154,14 @@ void delete_all_nodes_with_key(int key)
                 cur  = cur->next;
         }
         delete_front();
+}
+void delete_even_positions()
+{
+        for(Node* cur = Head ; cur and cur->next ; cur=cur->next)
+        {
+            delete_and_link(cur->next);
+            if(!cur->next)
+                Tail = cur;
+        }
 }
 };
