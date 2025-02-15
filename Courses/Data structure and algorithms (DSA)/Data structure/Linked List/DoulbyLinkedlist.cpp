@@ -164,4 +164,28 @@ void delete_even_positions()
                 Tail = cur;
         }
 }
+    void delete_odd_positions()
+    {
+        insert_front(0);
+        for(Node* cur = Head ; cur and cur->next ; cur=cur->next)
+        {
+            delete_and_link(cur->next);
+            if(!cur->next)
+                Tail = cur;
+        }
+        delete_front();
+    }
 };
+int main()
+
+{
+    DoulbyLinkedlist obj;
+    obj.insert_back(1);
+    obj.insert_back(2);
+    obj.insert_back(3);
+    obj.insert_back(4);
+    obj.print();
+    obj.delete_odd_positions();
+    obj.print();
+    return  0 ;
+}
