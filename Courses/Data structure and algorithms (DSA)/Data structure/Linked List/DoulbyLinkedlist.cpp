@@ -195,15 +195,11 @@ int find_middle()
         }
     return ans;
 }
-};
-int main()
-
+int find_middle_with_sll()
 {
-    DoulbyLinkedlist obj;
-    obj.insert_back(1);
-  
-    obj.print();
-    cout<<obj.find_middle();
+    auto cur1 = Head , cur2 = Head;
+    for(; cur2 and cur2->next ; cur1 = cur1->next , cur2=cur1->next);
 
-    return  0 ;
+   return cur1->data;
 }
+};
