@@ -133,4 +133,20 @@ void  delete_node_with_key(int key)
             }
         }
 }
+void delete_all_nodes_with_key(int key)
+{
+    insert_front(-key);
+        for(Node* cur = Head ; cur ; cur = cur->next)
+        {
+            if(cur->data == key)
+            {
+                cur = delete_and_link(cur);
+                if(!cur->next)
+                    Tail = cur ;
+            }
+            else
+                cur  = cur->next;
+        }
+        delete_front();
+}
 };
