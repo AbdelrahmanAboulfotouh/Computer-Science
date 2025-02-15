@@ -54,6 +54,7 @@ public:
             link(Tail,temp);
             Tail = temp;
         }
+        ++Length;
     }
     void insert_front(int value)
     {
@@ -67,6 +68,7 @@ public:
             link(temp, Head);
             Head = temp;
         }
+        ++Length;
     }
     void embed_after(Node* node_before, int value)
     {
@@ -164,28 +166,23 @@ void delete_even_positions()
                 Tail = cur;
         }
 }
-    void delete_odd_positions()
-    {
-        insert_front(0);
-        for(Node* cur = Head ; cur and cur->next ; cur=cur->next)
-        {
-            delete_and_link(cur->next);
-            if(!cur->next)
-                Tail = cur;
-        }
-        delete_front();
-    }
-};
-int main()
-
+void delete_odd_positions()
 {
-    DoulbyLinkedlist obj;
-    obj.insert_back(1);
-    obj.insert_back(2);
-    obj.insert_back(3);
-    obj.insert_back(4);
-    obj.print();
-    obj.delete_odd_positions();
-    obj.print();
-    return  0 ;
+    insert_front(0);
+    delete_even_positions();
+    delete_front();
 }
+bool is_balindrome()
+{
+        int len  = Length/2 ;
+        for(auto  front = Head , back = Tail; len-- ; front = front->next , back = back->pre)
+        {
+
+            if(front->data != back->data)
+                return false;
+
+        }
+    return true;
+}
+
+};
