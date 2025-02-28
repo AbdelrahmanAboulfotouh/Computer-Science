@@ -70,23 +70,3 @@ public:
 
 
 };
-int main()
-{
-Stack s(10);
-
-    s.push(2,5);
-    s.push(2,6);
-    s.pop(2);
-    s.push(2,7);
-    s.push(2,9);
-    s.push(1,4);
-    cout<<s.peek(1)<<endl;
-    cout<<s.peek(2)<<endl;
-
-s.push(1,6);
-s.push(1,8);
-s.push(2,3);
-s.print();
-
-    return 0;
-}
