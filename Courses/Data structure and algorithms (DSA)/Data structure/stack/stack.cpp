@@ -1,16 +1,18 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-class stack{
+class Stack{
 private:
     int size{ };
     int top {-1};
     int* array{ };
-    stack(int size):size(size)
+
+
+public:
+    Stack(int size):size(size)
     {
         array = new int[size];
     };
-public:
     bool  isfull()
     {
         return top == size-1;
@@ -48,3 +50,12 @@ public:
 
 
 };
+int main()
+{
+    Stack s(3);
+    s.push(1);
+    s.push(2);
+    s.push(3);
+    s.print();
+    return 0;
+}
