@@ -27,7 +27,7 @@ public:
 
         for(int i = top ; i>=0 ; --i)
         {
-            cout<<array[top--]<<" ";
+            cout<<array[i]<<" ";
             cout<<endl;
         }
     }
@@ -57,5 +57,6 @@ int main()
     s.push(2);
     s.push(3);
     s.print();
+    cout<<s.peek();
     return 0;
 }
