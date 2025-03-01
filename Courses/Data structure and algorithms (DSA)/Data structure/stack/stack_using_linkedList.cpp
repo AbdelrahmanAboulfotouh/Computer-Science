@@ -9,9 +9,7 @@ private:
         Node(int val):data(val){};
     };
     Node* top{ };
-    int size{ };
 public:
-    Stack(int size):size(size){};
     void push(int value)
     {
 
@@ -46,7 +44,7 @@ int peek()
 int main()
 {
 
-    Stack s(3);
+    Stack s;
     s.push(1);
     s.push(2);
     s.push(3);
