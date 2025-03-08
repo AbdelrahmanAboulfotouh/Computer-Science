@@ -49,6 +49,23 @@ public:
     }
 
 
+    void insert_at_bottom(int x)
+    {
+//base-case
+        if(isempty())
+        {
+            push(x);
+        }
+        else {
+            int cur = pop();
+            return insert_at_bottom(x);
+            push(cur);
+        }
+    }
+    void reverse()
+    {
+        
+    }
 };
 int main()
 {
@@ -57,6 +74,7 @@ int main()
     s.push(2);
     s.push(3);
     s.print();
-    cout<<s.peek();
+    s.insert_at_bottom(25);
+    s.print();
     return 0;
 }
