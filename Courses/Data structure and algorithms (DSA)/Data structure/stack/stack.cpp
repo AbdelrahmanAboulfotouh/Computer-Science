@@ -56,25 +56,40 @@ public:
         {
             push(x);
         }
-        else {
+        else
+        {
             int cur = pop();
-            return insert_at_bottom(x);
+             insert_at_bottom(x);
             push(cur);
         }
     }
     void reverse()
     {
-        
+
+
+        if(isempty())
+            return;
+
+            int cur_top = pop();
+               reverse();
+            insert_at_bottom(cur_top);
+
+
+
+
+
     }
 };
 int main()
 {
-    Stack s(3);
+    Stack s(10);
     s.push(1);
     s.push(2);
     s.push(3);
-    s.print();
+    //s.print();
     s.insert_at_bottom(25);
+    s.print();
+   s.reverse();
     s.print();
     return 0;
 }
