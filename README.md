@@ -5,5 +5,6 @@
 - Build a Modern Computer from Nand to Tetris.
 - Operating Systems: Three Easy Pieces.
 - Computer Networking: a Top-Down Approach .
+- StanfordOnline: Compilers
 - [CS50’s Introduction to Databases with SQL](https://github.com/AbdelrahmanAboulfotouh/Computer-Science/tree/main/Courses/CS50%E2%80%99s%20Introduction%20to%20Databases%20with%20SQL)
 
