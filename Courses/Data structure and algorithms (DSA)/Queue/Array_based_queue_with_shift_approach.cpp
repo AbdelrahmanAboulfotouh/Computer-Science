@@ -24,7 +24,7 @@ private:
 
 public:
     Queue(int size):size(size){
-        arr[size];
+        arr = new int[size];
     }
     void enqueue(int value){
         arr[rear++] = value ;
