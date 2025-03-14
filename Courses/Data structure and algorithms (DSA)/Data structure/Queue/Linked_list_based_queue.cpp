@@ -18,6 +18,6 @@ public:
     }
     bool isEmpty()
     {
-        List.size() == 0;
+       return List.size() == 0;
     }
 };
