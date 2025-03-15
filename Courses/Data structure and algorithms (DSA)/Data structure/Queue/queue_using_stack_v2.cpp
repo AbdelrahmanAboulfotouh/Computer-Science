@@ -4,20 +4,19 @@ class Queue{
     Stack s2;
     int added_elements{ };
     int size{ };
-    void insert_back(int value)
+    int pop_back()
     {
+
         while (!s1.isempty())
         {
             s2.push(s1.pop());
         }
-
-        s1.push(value);
-        
+        int top = s2.pop();
         while (!s2.isempty())
         {
             s1.push(s2.pop());
         }
-
+        return top;
 
     }
 
@@ -26,13 +25,13 @@ public:
 
     void enqueu(int value)
     {
-        insert_back(value);
+        s1.push(value);
         ++added_elements;
     }
     int dequeue()
     {
         --added_elements;
-        return s1.pop();
+        return pop_back();
     }
     bool is_empty()
     {
@@ -48,7 +47,7 @@ int main ()
     {
         q.enqueu(i);
     }
-    cout<<q.dequeue();
+    cout<<q.dequeue()<<endl;
     for(int i{4};i<=5;++i)
     {
         q.enqueu(i);
