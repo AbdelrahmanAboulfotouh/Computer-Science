@@ -522,6 +522,10 @@ int get_max_recursive( Node* Head = nullptr, bool is_first_time = true)
     return std::max(Head->data, get_max_recursive(Head->next, false));
 
 }
+Node* get_head()
+{
+    return Head;
+}
 };
 //#6 (easy)  LinkedList with only a Head pointer
 class LinkedList{
@@ -557,18 +561,3 @@ public:
 
 
 };
-int main()
-{
-    Linkedlist obj ;
-    obj.insert_back(1);
-    obj.insert_back(1);
-    obj.insert_back(1);
-    obj.insert_back(2);
-    obj.insert_back(7);
-    obj.insert_back(3);
-
-    obj.print();
-
-cout<< obj.get_max_recursive();
-    return 0;
-}
