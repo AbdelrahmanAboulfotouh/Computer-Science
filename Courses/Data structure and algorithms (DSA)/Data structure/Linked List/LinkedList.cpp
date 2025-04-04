@@ -526,7 +526,51 @@ Node* get_head()
 {
     return Head;
 }
+
+    Node* Delete_and_move(Node* E , Node* current)
+    {
+        Node* item = current->next;
+        if(E)
+            E->next = item;
+        else if (current == Head) {
+            Head = Head->next;
+        }
+        delete current;
+        return item;
+    }
+    Node* Remove_all_repeated()
+    {
+        int pre{-1};
+        Node* E{ };
+        Node* cur =Head;
+        int x{1};
+        while (cur)
+        {
+            //deletion decision
+            if(cur->data == pre or ( cur->next and cur->data == cur->next->data ))
+            {
+                pre  = cur->data;
+                cout<<x++<<"///";
+                cur = Delete_and_move(E,cur);
+
+            }
+            else
+            {
+                E = cur;
+                pre = cur->data;
+                cur = cur->next;
+            }
+        }
+        if (Head)
+            cout << Head->data << "**\n";
+        else
+            cout << "List is now empty\n";
+
+        return Head;
+    }
+
 };
+
 //#6 (easy)  LinkedList with only a Head pointer
 class LinkedList{
 private:
