@@ -205,7 +205,7 @@ int find_middle_with_sll()
 void Swap_forward_with_backward(int k)
 {
         int s = Length-k+1;
-        if(k == s)
+        if(k == s or k > Length)
             return;
         if(k > s)
             swap(s,k);
@@ -229,17 +229,17 @@ void Swap_forward_with_backward(int k)
     auto Prea = swa->pre;
     auto Nexta = swa->next;
 
-
-    bool F =(Preb == swa or  Prea == swb or Nexta == swb or Nextb == swa);
+    bool neighbour =(Preb == swa or  Prea == swb or Nexta == swb or Nextb == swa);
 
     if(swa == Head and swb == Tail or (swa == Tail and swb == Head))
         swap(Head,Tail);
+
     link(Preb,swa);
     link(swa,Nextb);
 
     link(Prea,swb);
     link(swb,Nexta);
-    if(F)
+    if(neighbour)
         link(swb,swa);
 
 
