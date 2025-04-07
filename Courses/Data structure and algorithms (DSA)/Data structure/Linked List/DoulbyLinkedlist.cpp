@@ -202,4 +202,62 @@ int find_middle_with_sll()
 
    return cur1->data;
 }
+void Swap_forward_with_backward(int k)
+{
+        int s = Length-k+1;
+        if(k == s)
+            return;
+        if(k > s)
+            swap(s,k);
+        Node* swa{ };
+        Node* swb{ };
+        int c{1};
+
+    for(auto cur = Head ; cur ; cur = cur->next)
+    {
+        if(c == k)
+            swa = cur;
+        if(c == s)
+            swb = cur;
+        if(swa and swb)
+            break;
+        ++c;
+    }
+    auto Preb = swb->pre;
+    auto Nextb = swb->next;
+
+    auto Prea = swa->pre;
+    auto Nexta = swa->next;
+
+
+    bool F =(Preb == swa or  Prea == swb or Nexta == swb or Nextb == swa);
+
+    if(swa == Head and swb == Tail or (swa == Tail and swb == Head))
+        swap(Head,Tail);
+    link(Preb,swa);
+    link(swa,Nextb);
+
+    link(Prea,swb);
+    link(swb,Nexta);
+    if(F)
+        link(swb,swa);
+
+
+}
 };
+int main ()
+{
+    DoulbyLinkedlist List;
+    List.insert_back(1);
+    List.insert_back(2);
+
+    List.insert_back(3);
+    List.insert_back(4);
+    List.insert_back(5);
+    List.insert_back(6);
+
+    List.print();
+    List.Swap_forward_with_backward(6);
+    List.print();
+    return 0;
+}
