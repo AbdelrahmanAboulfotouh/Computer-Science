@@ -27,6 +27,10 @@ public:
             cout<<cur->data<<" ";
         cout<<endl;
     }
+    Node* get_head()
+    {
+        return Head;
+    }
     void print_Reversed()
     {
         for(Node* cur =Tail ; cur ; cur = cur->next)
@@ -256,19 +260,54 @@ void Reverse_list_nodes()
     swap(Head,Tail);
 }
 };
+void Link(Node* first, Node* last)
+{
+    if(first)
+        first->next = last;
+    if(last)
+        last->pre = first;
+}
+Node* mergeTwoLists(Node* list1, Node* list2)
+{
+    if(!list1)
+        return list2;
+    if(!list2)
+        return list1;
+    Node* tmp{ };
+    Node* Head= (list1->data <= list2->data)? list1 : list2;
+    auto  cur1 = list1;
+    auto cur2 = list2;
+    while (cur1 and cur2)
+    {
+        auto Min = (cur1->data <= cur2->data)? cur1 : cur2;
+        if(Min == cur1)
+            cur1 = cur1->next;
+        else
+            cur2=cur2->next;
+        Link(tmp,Min);
+        tmp = Min;
+
+    }
+    if(cur1)
+        Link(tmp,cur1);
+    else if (cur2)
+        Link(tmp,cur2);
+
+    return Head;
+}
 int main ()
 {
     DoulbyLinkedlist List;
+    DoulbyLinkedlist List2;
     List.insert_back(1);
     List.insert_back(2);
 
-    List.insert_back(3);
-    List.insert_back(4);
+    List2.insert_back(3);
+    List2.insert_back(4);
     List.insert_back(5);
     List.insert_back(6);
-
-    List.print();
-    List.Reverse_list_nodes();
-    List.print();
-    return 0;
+    auto Head = mergeTwoLists(List.get_head(),List2.get_head());
+    for(auto cur = Head; cur ; cur=cur->next)
+        cout<<cur->data<<" ";
+            return 0;
 }
