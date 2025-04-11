@@ -244,6 +244,17 @@ void Swap_forward_with_backward(int k)
 
 
 }
+void Reverse_list_nodes()
+{
+        auto cur = Head;
+    while (cur)
+    {
+        auto tmp = cur ;
+        cur = cur->next;
+        swap(tmp->next,tmp->pre);
+    }
+    swap(Head,Tail);
+}
 };
 int main ()
 {
@@ -257,7 +268,7 @@ int main ()
     List.insert_back(6);
 
     List.print();
-    List.Swap_forward_with_backward(6);
+    List.Reverse_list_nodes();
     List.print();
     return 0;
 }
