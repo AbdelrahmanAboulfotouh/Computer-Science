@@ -70,25 +70,17 @@ public:
         cout<<endl;
     }
     void print(){
-        int count{0};
-        for(auto cur = Head; cur ; cur = cur->next)
+        auto cur = Head ;
+        for(int c{0};  c<length ;++c)
         {
-            while (count != cur->idx and count < length)
-            {
-                cout<<0<<" ";
-                    count++;
-            }
-            if(count == cur->idx) {
+            if(cur and cur->idx == c) {
                 cout << cur->data << " ";
-                    count++;
+                cur = cur->next;
             }
+            else
+                cout<<0<<" ";
         }
-        while ( count < length)
-        {
-            cout<<0<<" ";
-            count++;
-        }
-    cout<<endl;
+        cout<<endl;
     }
     Node* get(int index)
     {
@@ -153,9 +145,9 @@ int main()
     List.set_value(20,2);
     List.set_value(70,7);
     List.set_value(40,4);
-    List.print_array_nonzero();
+    //List.print_array_nonzero();
     List.print();
-
+/*
     ArrayLinkedList List2(10);
     List2.set_value(1,4);
     List2.set_value(3,7);
@@ -163,6 +155,6 @@ int main()
     List2.print_array_nonzero();
     List.add(List2);
     List.print();
-
+*/
     return 0;
 }
