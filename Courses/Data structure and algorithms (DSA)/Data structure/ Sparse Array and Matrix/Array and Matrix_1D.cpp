@@ -119,11 +119,18 @@ public:
                 ++acutal_length;
             }
         }
-        if(cur2) {
-            if (cur1)
-                cur1->next = cur2;
-            else
-                cur1->pre->next = cur2;
+        while (cur2 && acutal_length < length) {
+            Node* newNode = new Node(cur2->data, cur2->idx);
+            Node* last { };
+            if (!Head) {
+                Head = newNode;
+                last = Head;
+            } else {
+                link(last, newNode);
+                last = newNode;
+            }
+            cur2 = cur2->next;
+            ++acutal_length;
         }
     }
 
