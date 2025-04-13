@@ -90,6 +90,15 @@ public:
         }
     cout<<endl;
     }
+    Node* get(int index)
+    {
+        for(auto cur = Head; cur ; cur = cur->next)
+        {
+            if(cur->idx == index)
+                return cur;
+        }
+        return { };
+    }
     void add(ArrayLinkedList List2)
     {
         auto cur1 = Head;
