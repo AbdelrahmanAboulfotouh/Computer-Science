@@ -82,17 +82,20 @@ public:
         }
         cout<<endl;
     }
-    Node* get(int index)
+    int get_value(int index)
     {
         for(auto cur = Head; cur ; cur = cur->next)
         {
             if(cur->idx == index)
-                return cur;
+                return cur->data;
         }
         return { };
     }
     void add(ArrayLinkedList List2)
     {
+        if(length != List2.length)
+            throw std::runtime_error("Something went wrong with addition!");
+
         auto cur1 = Head;
         auto cur2  = List2.Head;
         while (cur1 and cur2)
