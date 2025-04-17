@@ -20,46 +20,47 @@ private:
             last->pre = first;
     }
 public:
+    Node* get_head(){return  Head;}
     ArrayLinkedList(int length):length(length){};
     void set_value(int value, int index)
     {
-        if(length == acutal_length)
-            return;
-        ++acutal_length;
-        Node* new_item = new Node(value,index);
-        if(!Head) {
-            Head = new_item;
-            return;
-        }
-        for(auto cur = Head;cur;cur=cur->next)
-        {
-            if(cur->idx >= new_item->idx)
-            {
-                if(Head == cur)
-                    Head = new_item;
-                Node*tmp = cur->pre;
-                link(new_item,cur);
-                link(tmp,new_item);
+
+        bool Found = false;
+        for(auto cur = Head;cur;cur=cur->next) {
+            if (cur->idx >= index) {
+                cur->data = value;
+                Found = true;
                 break;
             }
-            else if(cur->idx < new_item->idx)
-            {
-                bool f = false;
-                 if(cur->next == nullptr)
-                     f = true;
-                 else if(cur->next->idx > new_item->idx)
-                         f = true;
-                 if(f)
-                 {
-
-                     Node *tmp = cur->next;
-                     link(cur, new_item);
-                     link(new_item, tmp);
-                     break;
-                 }
+        }
+        if(!Found)
+        {
+            Node* new_item = new Node(value,index);
+            if(!Head) {
+                Head = new_item;
+                ++acutal_length;
+                return;
+            }
+            auto cur =Head;
+            while (cur and cur->next and cur->idx < index)
+                cur = cur->next;
+            if(cur and cur->idx < index) {
+                Node *tmp = cur->next;
+                link(cur, new_item);
+                link(new_item, tmp);
+                ++acutal_length;
 
             }
-        }
+            else if(cur and cur->idx > index)
+            {
+                Node *tmp = cur->pre;
+                link(new_item, cur);
+                link(tmp,new_item);
+                ++acutal_length;
+
+            }
+       }
+
     }
     void print_array_nonzero()
     {
@@ -141,23 +142,3 @@ public:
 
 
 };
-int main()
-{
-    ArrayLinkedList List(10);
-    List.set_value(50,5);
-    List.set_value(20,2);
-    List.set_value(70,7);
-    List.set_value(40,4);
-    //List.print_array_nonzero();
-    List.print();
-/*
-    ArrayLinkedList List2(10);
-    List2.set_value(1,4);
-    List2.set_value(3,7);
-    List2.set_value(4,6);
-    List2.print_array_nonzero();
-    List.add(List2);
-    List.print();
-*/
-    return 0;
-}
