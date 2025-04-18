@@ -21,7 +21,7 @@ int my_pow(int value,int p = 2)
 int arr_max(int arr[],int len)
 {
     if(len == 1)
-        return arr[1];
+        return arr[0];
     int max_of_rest = arr_max(arr,len-1);
     return max(arr[len-1],max_of_rest);
 }
