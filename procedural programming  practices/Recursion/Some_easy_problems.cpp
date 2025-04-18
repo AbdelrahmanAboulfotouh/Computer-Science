@@ -44,11 +44,21 @@ double arr_avarge_using_helper(int arr[],int len)
 {
     return arr_sum(arr,len)/(double)len;
 }
+void arr_increment(int arr[],int len)
+{
+    if(len == 1)
+        return;
+    arr[len-1]+=(len-1);
+    arr_increment(arr,len-1);
 
+}
 int main()
 {
-    int arr[] = {1,8,2,10,3};
-    cout<<(double )arr_avarge(arr,5);
+    int arr[] = {1,2,5,9};
+    arr_increment(arr,4);
+    for(auto &x : arr)
+        cout<<x<<" ";
+
     //cout<<arr_sum(arr,5);
     //cout<<arr_max(arr,5);
     //cout<<my_pow(7,2);
