@@ -61,10 +61,17 @@ void arr_accumulate(int arr[], int len)
 }
 
 
+void Left_max(int arr[], int len)
+{
+    if(len == 1)
+        return;
+    Left_max(arr,len-1);
+    arr[len-1] = max(arr[len-1] , arr[len-2]);
+}
 int main()
 {
-    int arr[] = {1};
-    arr_accumulate(arr,1);
+    int arr[] = {1,3,5,7,4,2};
+    Left_max(arr,6);
     for(auto &x : arr)
         cout<<x<<" ";
 
