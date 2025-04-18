@@ -25,9 +25,17 @@ int arr_max(int arr[],int len)
     int max_of_rest = arr_max(arr,len-1);
     return max(arr[len-1],max_of_rest);
 }
+int arr_sum(int arr[], int len)
+{
+    if(len == 1)
+        return arr[0];
+    int sum_rest = arr_sum(arr,len-1);
+    return arr[len-1] + sum_rest;
+}
 int main()
 {
-    //int arr[] = {1,8,2,10,3};
+    int arr[] = {1,8,2,10,3};
+    cout<<arr_sum(arr,5);
     //cout<<arr_max(arr,5);
     //cout<<my_pow(7,2);
     //cout<<length_3n_plus_one(10);
