@@ -52,10 +52,19 @@ void arr_increment(int arr[],int len)
     arr_increment(arr,len-1);
 
 }
+void arr_accumulate(int arr[], int len)
+{
+    if(len == 1)
+        return;
+    arr_accumulate(arr,len-1);
+    arr[len-1] = arr[len-1] + arr[len-2];
+}
+
+
 int main()
 {
-    int arr[] = {1,2,5,9};
-    arr_increment(arr,4);
+    int arr[] = {1};
+    arr_accumulate(arr,1);
     for(auto &x : arr)
         cout<<x<<" ";
 
