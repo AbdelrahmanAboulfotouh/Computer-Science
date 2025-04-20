@@ -73,14 +73,22 @@ void right_max(int arr[], int len)
     if(len == 1) {
         return;
     }
-        arr[len-2] = max(arr[len-2],arr[len-1]);
+    arr[len-2] = max(arr[len-2],arr[len-1]);
     right_max(arr,len-1);
 
 }
+void right_max(int len,int arr[])
+{
+    if(len == 1)
+        return;
+    right_max(len-1,arr+1);
+    arr[0] = max(arr[0],arr[1]);
+}
+
 int main()
 {
-    int arr[] = {1};
-    right_max(arr,1);
+    int arr[] = {1,3,5,7,4,2};
+    right_max(arr,6);
     for(auto &x : arr)
         cout<<x<<" ";
 
