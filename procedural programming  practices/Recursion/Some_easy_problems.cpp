@@ -90,10 +90,17 @@ int suffix_sum(int arr[] , int len , int N){
     auto rest = suffix_sum(arr,len-1,N-1);
     return arr[len-1] + rest;
 }
+int prefix_sum(int arr[],int len,int N)
+{
+    if(N == 0)
+        return 0;
+    auto rest = prefix_sum(arr+1,len-1,N-1);
+    return arr[0] + rest;
+}
 int main()
 {
     int arr[] = {1,3,5,7,4,2};
-    cout<<suffix_sum(arr,6,6)<<"\n";
+    cout<<prefix_sum(arr,6,4)<<"\n";
 
     //cout<<arr_sum(arr,5);
     //cout<<arr_max(arr,5);
