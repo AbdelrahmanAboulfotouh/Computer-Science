@@ -84,13 +84,16 @@ void right_max(int len,int arr[])
     right_max(len-1,arr+1);
     arr[0] = max(arr[0],arr[1]);
 }
-
+int suffix_sum(int arr[] , int len , int N){
+    if(N == 0)
+        return 0;
+    auto rest = suffix_sum(arr,len-1,N-1);
+    return arr[len-1] + rest;
+}
 int main()
 {
     int arr[] = {1,3,5,7,4,2};
-    right_max(arr,6);
-    for(auto &x : arr)
-        cout<<x<<" ";
+    cout<<suffix_sum(arr,6,6)<<"\n";
 
     //cout<<arr_sum(arr,5);
     //cout<<arr_max(arr,5);
