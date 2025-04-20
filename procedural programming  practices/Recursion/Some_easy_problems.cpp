@@ -97,10 +97,16 @@ int prefix_sum(int arr[],int N)
     auto rest = prefix_sum(arr+1,N-1);
     return arr[0] + rest;
 }
+bool is_palindrome(int arr[],int len)
+{
+    if(len <= 1)
+        return true;
+    return (*arr == arr[len-1]) and is_palindrome(arr+1,len-2);
+}
 int main()
 {
-    int arr[] = {1,3,5,7,4,2};
-    cout<<prefix_sum(arr,4)<<"\n";
+    int arr[] = {1,0};
+    cout<<is_palindrome(arr,2)<<"\n";
 
     //cout<<arr_sum(arr,5);
     //cout<<arr_max(arr,5);
