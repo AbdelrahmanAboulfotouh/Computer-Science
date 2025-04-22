@@ -97,16 +97,30 @@ int prefix_sum(int arr[],int N)
     auto rest = prefix_sum(arr+1,N-1);
     return arr[0] + rest;
 }
-bool is_palindrome(int arr[],int len)
-{
-    if(len <= 1)
+bool is_palindrome(int arr[],int len) {
+    if (len <= 1)
         return true;
-    return (*arr == arr[len-1]) and is_palindrome(arr+1,len-2);
+    return (*arr == arr[len - 1]) and is_palindrome(arr + 1, len - 2);
 }
+    bool non_recursive_is_prefix(string str,string word)
+    {
+        string sub = str.substr(0,word.size());
+        return sub == word;
+
+    }
+    bool recursive_is_prefix(string str, string word, int pos)
+    {
+        if(pos == word.size())
+            return true;
+        return str[pos] == word[pos] and recursive_is_prefix(str,word,pos+1);
+    }
+
 int main()
 {
-    int arr[] = {1,0};
-    cout<<is_palindrome(arr,2)<<"\n";
+    cout<<recursive_is_prefix("abcde","abcde",0);
+
+    //int arr[] = {1,0};
+    //cout<<is_palindrome(arr,2)<<"\n";
 
     //cout<<arr_sum(arr,5);
     //cout<<arr_max(arr,5);
