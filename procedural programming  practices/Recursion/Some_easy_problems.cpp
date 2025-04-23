@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include <algorithm>
 using namespace std;
 
@@ -114,10 +115,30 @@ bool is_palindrome(int arr[],int len) {
             return true;
         return str[pos] == word[pos] and recursive_is_prefix(str,word,pos+1);
     }
+    bool is_prime(int n , int s =2)
+    {
 
+        if(n < 2 )
+            return false;
+        if(s >= sqrt(n))
+        {
+            if(n % s == 0)
+                return false;
+            else
+                return true;
+        }
+        return (n % s != 0) and is_prime(n,s+1);
+    }
+int count_primes(int start, int end)
+{
+    if(start > end)
+        return 0;
+    return (int)is_prime(start) + count_primes(start+1,end);
+}
 int main()
 {
-    cout<<recursive_is_prefix("abcde","abcde",0);
+    cout<<count_primes(10,200000);
+    //cout<<recursive_is_prefix("abcde","abcde",0);
 
     //int arr[] = {1,0};
     //cout<<is_palindrome(arr,2)<<"\n";
