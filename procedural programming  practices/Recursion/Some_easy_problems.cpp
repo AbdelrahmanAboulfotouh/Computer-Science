@@ -135,6 +135,29 @@ int count_primes(int start, int end)
         return 0;
     return (int)is_prime(start) + count_primes(start+1,end);
 }
+int grid_sum(int grid[100][100],int row, int col, int rows, int columns){
+    if(row >= rows or  col >= columns)
+        return 0;
+    int x { }, y{ };
+    int right{ }, down{ },diagonal{ };
+    if(row+1 < rows)
+        right =grid[row+1][col]  ;
+    if(col+1 < columns)
+        down =grid[row][col+1] ;
+    if(col+1  < columns and row+1 < columns)
+     diagonal =grid[row+1][col+1];
+
+    if(right>=down and right >= diagonal )
+        x = 1;
+    else if (down >= right and down >= diagonal)
+        y = 1;
+    else
+        {x = 1 , y= 1;}
+
+
+
+    return grid[row][col] + grid_sum(grid,row+x,col+y,rows,columns);
+}
 long long fibonacci(int n){
     if(n <= 1)
         return 1;
@@ -145,7 +168,15 @@ long long fibonacci(int n){
 }
 int main()
 {
-    cout<<fibonacci(6);
+    int x,y;cin>>x>>y;
+    int arr[100][100];
+    for(int i{0}; i< x ; ++i)
+        for(int j{0};j<y;++j)
+        {
+            cin>>arr[i][j];
+        }
+    cout<<grid_sum(arr,0,0,x,y);
+   // cout<<fibonacci(6);
     //cout<<count_primes(10,200000);
     //cout<<recursive_is_prefix("abcde","abcde",0);
 
