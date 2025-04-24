@@ -135,9 +135,18 @@ int count_primes(int start, int end)
         return 0;
     return (int)is_prime(start) + count_primes(start+1,end);
 }
+long long fibonacci(int n){
+    if(n <= 1)
+        return 1;
+    long long y = fibonacci(n-2);
+    long long x = fibonacci(n-1) ;
+
+    return x +y;
+}
 int main()
 {
-    cout<<count_primes(10,200000);
+    cout<<fibonacci(6);
+    //cout<<count_primes(10,200000);
     //cout<<recursive_is_prefix("abcde","abcde",0);
 
     //int arr[] = {1,0};
