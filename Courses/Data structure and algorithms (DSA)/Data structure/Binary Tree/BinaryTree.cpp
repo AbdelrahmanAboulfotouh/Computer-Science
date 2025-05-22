@@ -248,6 +248,42 @@ pair<bool,int> successor(Node* root,int target)
         return {true,parent->data};
     return {false, -1};
 }
+Node* min_node(Node* root)
+{
+    while (root and root->left)
+        root = root->left;
+    return root;
+}
+Node* delete_BST_node(Node* root,int target)
+{
+    if(!root)
+        return nullptr;
+    if(target < root->data)
+        root->left = delete_BST_node(root->left,target);
+    else if(target > root->data)
+        root->right = delete_BST_node(root->right,target);
+    else
+    {
+        auto  tmp = root;
+        if(!root->left and !root->right)
+            root = nullptr;
+        else if(!root->right)
+            root = root->left;
+        else if(!root->left)
+            root = root->left;
+        else
+        {
+            auto mn = min_node(root);
+            root->data = mn->data;
+            root->right = delete_BST_node(root->right,mn->data);
+            tmp = nullptr;
+        }
+        if(tmp)
+            delete tmp;
+    }
+    return root;
+
+}
 int main() {
     genrate_pyramid(5);
     // 7 4 8 2 5 9 1 3 10 6
