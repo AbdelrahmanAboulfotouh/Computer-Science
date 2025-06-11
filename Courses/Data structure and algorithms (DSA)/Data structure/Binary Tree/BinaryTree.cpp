@@ -312,6 +312,29 @@ Node* treeToDoublyList(Node* root)
     return inorder[0];
 
 }
+Node* merge(Node* first, Node* last)
+{
+    if(!first) return last;
+    if(!last)  return first;
+    Node* firstleft = first->left;
+    Node* lastleft = last->left;
+    link(firstleft,last);
+    link(first,lastleft);
+    return first;
+}
+Node* In_place_treeToDoublyList(Node* root)
+{
+    if(!root)
+        return nullptr;
+    Node* head1 = In_place_treeToDoublyList(root->left);
+    Node* head2 = In_place_treeToDoublyList(root->right);
+
+        root->left = root;
+        root->right = root;
+    Node* lefttree = merge(head1,root);
+    return  merge(lefttree,head2);
+}
+
 int main() {
     genrate_pyramid(5);
     // 7 4 8 2 5 9 1 3 10 6
