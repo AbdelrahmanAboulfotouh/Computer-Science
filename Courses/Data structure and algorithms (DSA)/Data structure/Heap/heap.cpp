@@ -65,3 +65,9 @@ public:
         array = nullptr;
     }
 };
+int main ()
+{
+    vector<int>v = {1,2,10};
+    printf("%d",*(v.begin()+2));
+    return 0;
+}

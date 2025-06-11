@@ -284,6 +284,34 @@ Node* delete_BST_node(Node* root,int target)
     return root;
 
 }
+vector<Node*> BST_to_inorder_arr(Node* root,     vector<Node*> &inorder) {
+    if(!root)
+        return{ };
+    BST_to_inorder_arr(root->left,inorder);
+    inorder.push_back(root);
+    BST_to_inorder_arr(root->right, inorder);
+
+    return inorder;
+}
+void link(Node* first, Node* last)
+{
+    if(first)
+        first->right = last;
+    if(last)
+        last->left = first;
+}
+Node* treeToDoublyList(Node* root)
+{
+    vector<Node*>inorder;
+    BST_to_inorder_arr(root,inorder);
+    for(int i{0};i<inorder.size()-1;++i)
+    {
+        link(inorder[i],inorder[i+1]);
+    }
+    link(inorder[0], inorder[inorder.size()-1]);
+    return inorder[0];
+
+}
 int main() {
     genrate_pyramid(5);
     // 7 4 8 2 5 9 1 3 10 6
