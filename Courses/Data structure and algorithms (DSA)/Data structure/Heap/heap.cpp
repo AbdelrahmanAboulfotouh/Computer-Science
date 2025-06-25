@@ -64,6 +64,35 @@ public:
     {
         return size == 0;
     }
+    void get_less_than(int val , vector<int> &v, int idx = 0)
+    {
+        if(idx == -1)
+            return;
+
+        int ch1 = left_child(idx);
+        if(array[ch1] < val)
+        {
+            v.push_back(array[ch1]);
+            get_less_than(val , v,ch1);
+        }
+        int ch2 = right_child(idx);
+        if(array[ch2] < val)
+        {
+            v.push_back(array[ch2]);
+            get_less_than(val , v,ch2);
+        }
+    }
+    vector<int>print_less_than(int val)
+    {
+        vector<int>ans;
+        if(array[0] < val)
+        {
+            ans.push_back(array[0]);
+            get_less_than(val,ans,0);
+        }
+
+        return ans;
+    }
     ~heap()
     {
         delete array;
@@ -72,7 +101,14 @@ public:
 };
 int main ()
 {
-    vector<int>v = {1,2,10};
-    printf("%d",*(v.begin()+2));
+    vector<int>vals ={2, 17, 22, 10, 8, 37, 14, 19, 7, 6, 5, 12, 25, 30};
+    heap h;
+    for(auto  &x:vals)
+        h.push(x);
+    vector ans = h.print_less_than(10);
+    for(auto &c :ans)
+        cout<<c<<" ";
+
+
     return 0;
 }
