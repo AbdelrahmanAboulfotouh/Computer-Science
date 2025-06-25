@@ -73,6 +73,16 @@ public:
         print_less_than(val , left_child(parent));
         print_less_than(val, right_child(parent));
     }
+    bool is_heap_array(int *p, int n,int parent = 0)
+    {
+        if(parent == -1)
+            return true;
+        int left = left_child(parent);
+        int right = right_child(parent);
+        if((left != -1 and p[parent] > p[left] )or (right and p[parent] < p[right]))
+            return false;
+        return is_heap_array(p,n, left_child(parent)) and is_heap_array(p,n, right_child(parent));
+    }
     ~heap()
     {
         delete array;
