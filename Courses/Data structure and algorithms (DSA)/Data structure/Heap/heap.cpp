@@ -92,7 +92,24 @@ public:
     }
     void heap_sort(int *p, int n)
     {
-
+        if(n < 2)
+            return;
+        int* old_arr = array;
+        int old_sz = size;
+        array = p;
+        size = n;
+        heapfy();
+        while (size--)
+        {
+            swap(array[0],array[size]);
+            heapify_down(0);
+        }
+        for(int i{0};i<=n/2;++i)
+        {
+            swap(array[i],array[n-i-1]);
+        }
+        size = old_sz;
+        array = old_arr;
 
     }
     ~heap()
