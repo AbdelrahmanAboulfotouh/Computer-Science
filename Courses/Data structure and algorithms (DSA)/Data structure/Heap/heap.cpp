@@ -6,6 +6,7 @@ private:
     int size;
     int capacity{1000};
 public:
+
     heap(){
         array = new int[capacity];
         size = 0;
@@ -58,6 +59,10 @@ public:
         assert(size > 0);
         array[0] = array[--size];
         heapify_down(0);
+    }
+    bool is_empty()
+    {
+        return size == 0;
     }
     ~heap()
     {

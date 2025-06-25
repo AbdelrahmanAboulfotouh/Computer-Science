@@ -53,7 +53,12 @@ public:
     }
     void delete_()
     {
-        swap(arr[0],arr[size]);
+        arr[0] = arr[--size];
         heapfy_down(0);
+    }
+    ~max_heap()
+    {
+        delete arr;
+        arr = nullptr;
     }
 };
