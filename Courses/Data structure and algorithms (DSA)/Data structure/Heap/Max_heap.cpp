@@ -17,6 +17,10 @@ public:
         assert(size >=0);
         return arr[0];
     }
+    int get_size()
+    {
+        return size;
+    }
     void heapfy_up(int child_pos)
     {
         int parent_pos = floor((child_pos-1)/2);

@@ -112,12 +112,17 @@ public:
         array = old_arr;
 
     }
+    int get_size()
+    {
+        return size;
+    }
     ~heap()
     {
         delete array;
         array = nullptr;
     }
 };
+/*
 int main ()
 {
     int vals[] ={2, 17, 22, 10, 8, 37, 14, 19, 7, 6, 5, 12, 25, 30};
@@ -128,3 +133,4 @@ int main ()
 
     return 0;
 }
+ */
