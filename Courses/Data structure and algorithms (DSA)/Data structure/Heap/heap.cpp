@@ -12,7 +12,7 @@ public:
         size = 0;
     }
     int parent(int child){
-        return log(child/2)-1;
+        return floor((child-1)/2);
     }
     int left_child(int node){
         int pos = 2*node +1 ;
