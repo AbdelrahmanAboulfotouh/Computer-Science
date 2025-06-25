@@ -64,34 +64,14 @@ public:
     {
         return size == 0;
     }
-    void get_less_than(int val , vector<int> &v, int idx = 0)
+
+    void print_less_than(int val,int parent = 0)
     {
-        if(idx == -1)
+        if(parent == -1 or array[parent] >= val)
             return;
-
-        int ch1 = left_child(idx);
-        if(array[ch1] < val)
-        {
-            v.push_back(array[ch1]);
-            get_less_than(val , v,ch1);
-        }
-        int ch2 = right_child(idx);
-        if(array[ch2] < val)
-        {
-            v.push_back(array[ch2]);
-            get_less_than(val , v,ch2);
-        }
-    }
-    vector<int>print_less_than(int val)
-    {
-        vector<int>ans;
-        if(array[0] < val)
-        {
-            ans.push_back(array[0]);
-            get_less_than(val,ans,0);
-        }
-
-        return ans;
+        cout<<array[parent]<<" ";
+        print_less_than(val , left_child(parent));
+        print_less_than(val, right_child(parent));
     }
     ~heap()
     {
@@ -105,10 +85,7 @@ int main ()
     heap h;
     for(auto  &x:vals)
         h.push(x);
-    vector ans = h.print_less_than(10);
-    for(auto &c :ans)
-        cout<<c<<" ";
-
+        h.print_less_than(10);
 
     return 0;
 }
