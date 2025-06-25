@@ -83,18 +83,16 @@ public:
             return false;
         return is_heap_array(p,n, left_child(parent)) and is_heap_array(p,n, right_child(parent));
     }
+    void heapfy()
+    {
+        for(int i =size/2-1;i>=0;--i)
+        {
+            heapify_down(i);
+        }
+    }
     void heap_sort(int *p, int n)
     {
-        for(int i{0};i<n-1;++i)
-        {
-            int mn_idx = i;
-            for(int j = i+1 ;j<n;++j)
-            {
-                if(p[j] < p[mn_idx])
-                    mn_idx = j;
-            }
-            swap(p[i],p[mn_idx]);
-        }
+
 
     }
     ~heap()
