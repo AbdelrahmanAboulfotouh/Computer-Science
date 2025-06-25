@@ -83,6 +83,20 @@ public:
             return false;
         return is_heap_array(p,n, left_child(parent)) and is_heap_array(p,n, right_child(parent));
     }
+    void heap_sort(int *p, int n)
+    {
+        for(int i{0};i<n-1;++i)
+        {
+            int mn_idx = i;
+            for(int j = i+1 ;j<n;++j)
+            {
+                if(p[j] < p[mn_idx])
+                    mn_idx = j;
+            }
+            swap(p[i],p[mn_idx]);
+        }
+
+    }
     ~heap()
     {
         delete array;
@@ -91,11 +105,11 @@ public:
 };
 int main ()
 {
-    vector<int>vals ={2, 17, 22, 10, 8, 37, 14, 19, 7, 6, 5, 12, 25, 30};
+    int vals[] ={2, 17, 22, 10, 8, 37, 14, 19, 7, 6, 5, 12, 25, 30};
     heap h;
-    for(auto  &x:vals)
-        h.push(x);
-        h.print_less_than(10);
+    h.heap_sort(vals,14);
+    for(auto &x:vals)
+        cout<<x<<" ";
 
     return 0;
 }
