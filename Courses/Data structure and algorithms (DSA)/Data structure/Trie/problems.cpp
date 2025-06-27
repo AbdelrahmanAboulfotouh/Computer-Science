@@ -156,3 +156,70 @@ public:
     }
 
 };
+
+class trie_path {
+    static const int MAX = 26;
+    trie_path *childs[MAX];
+    bool is_leaf{};
+public:
+    trie_path() {
+        memset(childs, 0, sizeof(childs));
+    }
+
+    void insert(const vector<string> &path) {
+        for(auto &str:path) {
+            trie_path *cur = this;
+            for (auto &c: str) {
+                int cur_idx = c - 'a';
+                if (cur->childs[cur_idx] == nullptr)
+                    cur->childs[cur_idx] = new trie_path();
+                cur = cur->childs[cur_idx];
+            }
+            cur->is_leaf = true;
+
+        }
+    }
+
+    bool word_exisit(string str) {
+        trie_path *cur = this;
+        for (auto &c: str) {
+            int cur_idx = c - 'a';
+            if (cur->childs[cur_idx] == nullptr)
+                return false;
+            cur = cur->childs[cur_idx];
+        }
+        return cur->is_leaf;
+    }
+
+    bool subpath_exist(const vector<string> &path) {
+        for(auto &str:path) {
+            if(!word_exisit(str))
+                return false;
+        }
+        return true;
+
+    }
+};
+
+int main()
+{
+    trie_path tree;
+    vector<string>path;
+    path = {"home", "software", "eclipse"};
+    tree.insert(path);
+    path = {"home", "software", "eclipse", "bin"};
+    tree.insert(path);
+    path = {"home", "installed", "gnu"};
+    tree.insert(path);
+    path = {"user", "mostafa", "tmp"};
+    tree.insert(path);
+
+    path = {"user", "mostafa", "tmp"};
+    cout << tree.subpath_exist(path) << "\n"; // 1
+    path = {"user", "mostafa"};
+    cout << tree.subpath_exist(path) << "\n"; // 1
+    path = {"user", "most"};
+    cout << tree.subpath_exist(path) << "\n"; // 0
+    path = {"user", "mostafa", "private"};
+    cout << tree.subpath_exist(path) << "\n"; // 0    return 0;
+}
