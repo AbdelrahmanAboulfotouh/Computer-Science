@@ -17,6 +17,7 @@ public:
            int cur_idx = c - 'a';
            if(cur->childs[cur_idx] == nullptr)
                cur->childs[cur_idx]= new trie();
+           cur = cur->childs[cur_idx];
        }
        cur->is_leaf = true;
     }
@@ -28,17 +29,20 @@ public:
             int cur_idx = c - 'a';
             if(cur->childs[cur_idx] == nullptr)
                 return false;
+            cur = cur->childs[cur_idx];
         }
         return cur->is_leaf;
     }
 
     bool prefix_exisit(string str )
     {
+        trie* cur = this;
         for(auto &c:str)
         {
             int cur_idx = c - 'a';
-            if(childs[cur_idx] == nullptr)
+            if(cur->childs[cur_idx] == nullptr)
                 return false;
+            cur = cur->childs[cur_idx];
         }
         return true;
     }
