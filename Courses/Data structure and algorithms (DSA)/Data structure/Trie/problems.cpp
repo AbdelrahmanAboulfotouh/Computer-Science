@@ -46,6 +46,39 @@ public:
         }
         return true;
     }
+    string first_word_prefix(const string &str)
+    {
+        trie* cur = this;
+        string ans;
+        for(auto &c:str)
+        {
+            int cur_idx = c - 'a';
+            ans+=c;
+            if(cur->childs[cur_idx] == nullptr )
+                break;
+            cur = cur->childs[cur_idx];
+            if(cur->is_leaf)
+                return ans;
+        }
+        return str;
+    }
 
 
 };
+int main() {
+    trie root;
+
+    root.insert("xyz");
+    root.insert("xyzea");
+    root.insert("a");
+    root.insert("bc");
+
+    cout << root.first_word_prefix("xyzabc") << "\n"; // Output: xyz
+    cout << root.first_word_prefix("x") << "\n";      // Output: x
+    cout << root.first_word_prefix("xyzeab") << "\n"; // Output: xyzea
+    cout << root.first_word_prefix("abc") << "\n";    // Output: a
+    cout << root.first_word_prefix("bcdef") << "\n";  // Output: bc
+    cout << root.first_word_prefix("zzz") << "\n";    // Output: zzz
+
+    return 0;
+}
