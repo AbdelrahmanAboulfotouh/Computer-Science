@@ -98,20 +98,61 @@ public:
     }
 
 };
-int main() {
-    trie root;
 
-    root.insert("xyz");
-    root.insert("xyzea");
-    root.insert("a");
-    root.insert("bc");
+class mapped_trie{
+    map<char,mapped_trie*>childs;
+    bool is_leaf{};
+public:
+    mapped_trie()
+    {}
+    void insert(string str )
+    {
+        mapped_trie* cur = this;
+        for(auto &c:str)
+        {
+            if(cur->childs[c] == nullptr)
+                cur->childs[c]= new mapped_trie();
+            cur = cur->childs[c];
+        }
+        cur->is_leaf = true;
+    }
+    bool word_exisit(string str )
+    {
+        mapped_trie* cur = this;
+        for(auto &c:str)
+        {
+            if(cur->childs[c] == nullptr)
+                return false;
+            cur = cur->childs[c];
+        }
+        return cur->is_leaf;
+    }
 
-    cout << root.first_word_prefix("xyzabc") << "\n"; // Output: xyz
-    cout << root.first_word_prefix("x") << "\n";      // Output: x
-    cout << root.first_word_prefix("xyzeab") << "\n"; // Output: xyzea
-    cout << root.first_word_prefix("abc") << "\n";    // Output: a
-    cout << root.first_word_prefix("bcdef") << "\n";  // Output: bc
-    cout << root.first_word_prefix("zzz") << "\n";    // Output: zzz
+    bool prefix_exisit(string str )
+    {
+        mapped_trie* cur = this;
+        for(auto &c:str)
+        {
+            if(cur->childs[c] == nullptr)
+                return false;
+            cur = cur->childs[c];
+        }
+        return true;
+    }
+    string first_word_prefix(const string &str)
+    {
+        mapped_trie* cur = this;
+        string ans;
+        for(auto &c:str)
+        {
+            ans+=c;
+            if(cur->childs[c] == nullptr )
+                break;
+            cur = cur->childs[c];
+            if(cur->is_leaf)
+                return ans;
+        }
+        return str;
+    }
 
-    return 0;
-}
+};
