@@ -63,6 +63,39 @@ public:
         return str;
     }
 
+};
+class custom_trie{
+    static const int MAX =26;
+    custom_trie* childs[MAX];
+    bool is_leaf{};
+public:
+    custom_trie()
+    {
+        memset(childs, 0, sizeof(childs));
+    }
+    void insert(string str )
+    {
+        custom_trie* cur = this;
+        for(int i = str.size()-1;i>=0;--i)
+        {
+            int cu_idx = str[i] - 'a';
+            if(cur->childs[cu_idx] == nullptr)
+                cur->childs[cu_idx] = new custom_trie();
+        }
+        cur->is_leaf = true;
+    }
+    bool suffix_exist(string str)
+    {
+        custom_trie* cur = this;
+        for(auto &c:str)
+        {
+            int cur_idx = c - 'a';
+            if(cur->childs[cur_idx] == nullptr)
+                return false;
+            cur = cur->childs[cur_idx];
+        }
+        return true;
+    }
 
 };
 int main() {
