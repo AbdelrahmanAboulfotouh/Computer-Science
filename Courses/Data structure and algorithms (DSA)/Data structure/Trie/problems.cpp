@@ -62,6 +62,16 @@ public:
         }
         return str;
     }
+    void get_all_strings(vector<string> &res,string sub ="")
+    {
+        if(is_leaf)
+            res.push_back(sub);
+       for(int i{0};i<MAX;++i)
+       {
+           if(childs[i])
+               childs[i]->get_all_strings(res,sub + (char) (i + 'a'));
+       }
+    }
 
 };
 class custom_trie{
@@ -203,23 +213,17 @@ public:
 
 int main()
 {
-    trie_path tree;
-    vector<string>path;
-    path = {"home", "software", "eclipse"};
-    tree.insert(path);
-    path = {"home", "software", "eclipse", "bin"};
-    tree.insert(path);
-    path = {"home", "installed", "gnu"};
-    tree.insert(path);
-    path = {"user", "mostafa", "tmp"};
-    tree.insert(path);
+    trie tree;
 
-    path = {"user", "mostafa", "tmp"};
-    cout << tree.subpath_exist(path) << "\n"; // 1
-    path = {"user", "mostafa"};
-    cout << tree.subpath_exist(path) << "\n"; // 1
-    path = {"user", "most"};
-    cout << tree.subpath_exist(path) << "\n"; // 0
-    path = {"user", "mostafa", "private"};
-    cout << tree.subpath_exist(path) << "\n"; // 0    return 0;
+    tree.insert("abcd");
+    tree.insert("xyz");
+    tree.insert("a");
+    tree.insert("ab");
+    tree.insert("xyzw");
+    tree.insert("bcd");
+
+    vector<string> res;
+    tree.get_all_strings(res);
+    for (int i = 0; i < (int) res.size(); ++i)
+        cout << res[i] << "\n";
 }
