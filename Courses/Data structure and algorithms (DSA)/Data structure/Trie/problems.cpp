@@ -72,13 +72,17 @@ public:
                childs[i]->get_all_strings(res,sub + (char) (i + 'a'));
        }
     }
-    void auto_complete(const string &str, vector<string> &res, string sub ="")
+    void auto_complete(const string &str, vector<string> &res)
     {
-        if(is_leaf and sub.find(str) != std::string::npos)
-            res.push_back(sub);
-        for(int i{0};i<MAX;++i)
-            if(childs[i])
-                childs[i]->auto_complete(str,res,sub + (char) (i + 'a'));
+       trie* cur = this;
+       for(int i{0};i<(int)str.size();++i)
+       {
+           int idx = str[i] - 'a';
+           if(cur->childs[idx] == nullptr)
+               return;
+           cur = cur->childs[idx];
+       }
+       cur->get_all_strings(res,str);
     }
 
 };
