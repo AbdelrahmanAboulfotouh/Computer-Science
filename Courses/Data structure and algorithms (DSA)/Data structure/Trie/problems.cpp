@@ -72,6 +72,16 @@ public:
                childs[i]->get_all_strings(res,sub + (char) (i + 'a'));
        }
     }
+    void auto_complete(const string &str, vector<string> &res)
+    {
+        vector<string >all;
+        get_all_strings(all);
+        for(auto & word : all)
+        {
+            if(word.find(str) != std::string::npos)
+                res.push_back(word);
+        }
+    }
 
 };
 class custom_trie{
@@ -209,6 +219,7 @@ public:
         return true;
 
     }
+
 };
 
 int main()
@@ -216,14 +227,15 @@ int main()
     trie tree;
 
     tree.insert("abcd");
+    tree.insert("ab");
+    tree.insert("abx");
+    tree.insert("abyz");
     tree.insert("xyz");
     tree.insert("a");
-    tree.insert("ab");
-    tree.insert("xyzw");
     tree.insert("bcd");
 
     vector<string> res;
-    tree.get_all_strings(res);
+    tree.auto_complete("ab", res);
     for (int i = 0; i < (int) res.size(); ++i)
         cout << res[i] << "\n";
 }
