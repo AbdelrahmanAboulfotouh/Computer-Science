@@ -72,15 +72,13 @@ public:
                childs[i]->get_all_strings(res,sub + (char) (i + 'a'));
        }
     }
-    void auto_complete(const string &str, vector<string> &res)
+    void auto_complete(const string &str, vector<string> &res, string sub ="")
     {
-        vector<string >all;
-        get_all_strings(all);
-        for(auto & word : all)
-        {
-            if(word.find(str) != std::string::npos)
-                res.push_back(word);
-        }
+        if(is_leaf and sub.find(str) != std::string::npos)
+            res.push_back(sub);
+        for(int i{0};i<MAX;++i)
+            if(childs[i])
+                childs[i]->auto_complete(str,res,sub + (char) (i + 'a'));
     }
 
 };
