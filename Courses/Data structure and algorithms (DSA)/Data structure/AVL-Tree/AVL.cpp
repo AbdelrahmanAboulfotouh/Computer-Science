@@ -1,135 +1,143 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <cassert>
+#include <vector>
+#include <algorithm>
 using namespace std;
-class AVLTree{
+
+class AVLTree {
 private:
-    struct Node{
-        int data{};
-        int hight{};
-        Node* left{};
-        Node* right{};
-        Node(int data):data(data){};
+    struct BinaryNode {
+        int data { };
+        int height { };
+        BinaryNode* left { };
+        BinaryNode* right { };
+
+        BinaryNode(int data) :
+                data(data) {
+        }
+
+        int ch_height(BinaryNode* node) {	// child height
+            if (!node)
+                return -1;			// -1 for null
+            return node->height;	// 0 for leaf
+        }
+        int update_height() {	// call in end of insert function
+            return height = 1 + max(ch_height(left), ch_height(right));
+        }
+        int balance_factor() {
+            return ch_height(left) - ch_height(right);
+        }
     };
-    Node* root{};
-int child_hight(Node* node)
-{
-    if(!node)
-        return -1;
-    return node->hight;
-}
-void update_hight(Node* node)
-{
-    node->hight = 1 + max(child_hight(node->left), child_hight(node->right));
-}
-int get_hight(Node* node)
-{
-    return child_hight(node->left) - child_hight(node->right);
-}
-Node* left_rotation (Node* A)
-{
-    Node* B = A->right;
-    A->right = B->left;
-    B->left = A;
 
-    update_hight(B);
-    update_hight(A);
-    return B;
-}
-Node* right_rotation(Node* B)
-{
-    Node* A = B->left;
-    B->left = A->right;
-    A->right = B;
+    BinaryNode *root { };
 
-    update_hight(A);
-    update_hight(B);
+    ///////////////////////////
 
-    return A;
-}
-Node* balance (Node* node)
-{
-    if( get_hight(node)== 2)
-    {
-        if(get_hight(node->left) == -1)
-        {
-            left_rotation(node->right);
+
+    BinaryNode* right_rotation(BinaryNode* Q) {
+        BinaryNode* P = Q->left;
+        Q->left = P->right;
+        P->right = Q;
+        Q->update_height();
+        P->update_height();
+        return P;
+    }
+
+    BinaryNode* left_rotation(BinaryNode* P) {
+        BinaryNode* Q = P->right;
+        P->right = Q->left;
+        Q->left = P;
+        P->update_height();
+        Q->update_height();
+        return Q;
+    }
+
+    BinaryNode* balance(BinaryNode* node) {
+        if (node->balance_factor() == 2) { 			// Left
+            if (node->left->balance_factor() == -1)	// Left Right?
+                node->left = left_rotation(node->left);	// To Left Left
+
+            node = right_rotation(node);	// Balance Left Left
+        } else if (node->balance_factor() == -2) {
+            if (node->right->balance_factor() == 1)
+                node->right = right_rotation(node->right);
+
+            node = left_rotation(node);
         }
-        right_rotation(node);
-
+        return node;
     }
-    else if(get_hight(node) == -2)
-    {
-        if(get_hight(node->right) == 1)
-        {
-            right_rotation(node->left);
+
+    BinaryNode* insert_node(int target, BinaryNode* node) {
+        if (target < node->data) {
+            if (!node->left)
+                node->left = new BinaryNode(target);
+            else
+                // change left. update left as it might be balanced
+                node->left = insert_node(target, node->left);
+        } else if (target > node->data) {
+            if (!node->right)
+                node->right = new BinaryNode(target);
+            else
+                node->right = insert_node(target, node->right);
         }
-        left_rotation(node);
+        node->update_height();
+        return balance(node);
+    }
 
+    BinaryNode* min_node(BinaryNode* cur) {
+        while (cur && cur->left)
+            cur = cur->left;
+        return cur;
+    }
 
-    }
-    return node;
-}
-Node* insert_node(int val , Node* node)
-{
-    if(val < node->data)
-    {
-        if(!node->left)
-            node->left = new Node(val);
-        else
-            insert_node(val,node->left);
-    }
-    else if (val >= node->data)
-    {
-        if(!node->right)
-            node->right = new Node(val);
-        else
-            insert_node(val,node->right);
-    }
-    update_hight(node);
-    return balance(node);
-}
-void insert_caller(int val)
-{
-    if(!root)
-        root = new Node(val);
-    else
-        insert_node(val, root);
-}
-Node* min_node(Node* cur)
-{
-    while (cur and cur->left)
-        cur = cur->left;
-    return cur;
-}
-Node* delete_Node(int value,Node* node)
-{
-    Node* tmp =node;
-    if(value < node->data)
-        delete_Node(value, node->left);
-    else if(value > node->data)
-        delete_Node(value, node->right);
-    else
-    {
-        if(!node->left and !node->right)
-            node = nullptr;
-        else if(!node->left)
-            node = node->right;
-        else if(!node->right)
-            node = node->left;
-        else
-        {
-            Node* MIN = min_node(node->right);
-            node->data = MIN->data;
-            node->right = delete_Node(node->data, node->right);
-            tmp = nullptr;
+    BinaryNode* delete_node(int target, BinaryNode* node) {
+        if (!node)
+            return nullptr;
+
+        if (target < node->data)
+            node->left = delete_node(target, node->left);
+        else if (target > node->data)
+            node->right = delete_node(target, node->right);
+        else {
+            BinaryNode* tmp = node;
+
+            if (!node->left && !node->right)	// case 1: no child
+                node = nullptr;
+            else if (!node->right) 	// case 2: has left only
+                node = node->left;		// connect with child
+            else if (!node->left)	// case 2: has right only
+                node = node->right;
+            else {	// 2 children: Use successor
+                BinaryNode* mn = min_node(node->right);
+                node->data = mn->data;	// copy & go delete
+                node->right = delete_node(node->data, node->right);
+                tmp = nullptr;	// Don't delete me. Successor will be deleted
+            }
+            if (tmp)
+                delete tmp;
         }
-        if(tmp)
-            delete tmp;
+        if (node) {
+            node->update_height();
+            node = balance(node);
+        }
+        return node;
     }
 
-    if(node) {
-        update_hight(node);
-        balance(node);
+
+
+public:
+    void insert_value(int target) {
+        if (!root)
+            root = new BinaryNode(target);
+        else
+            root = insert_node(target, root);
     }
-    return node;
-}
+
+    void delete_value(int target) {
+        if (root) {
+            root = delete_node(target, root);
+        }
+    }
+
+
 };
