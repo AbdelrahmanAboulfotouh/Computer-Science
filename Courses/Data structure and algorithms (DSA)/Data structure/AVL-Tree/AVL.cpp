@@ -170,43 +170,30 @@ public:
 
     pair<bool, int> lower_bound(int target)
     {
-        if(!root)
-            return {false,-1};
 
-        int ans  =INT32_MAX;
-        lower_bound(target,ans,root);
+        if(root)
+        {
 
-         if(ans == INT32_MAX or ans < target)
-             return {false, -1};
+        int ans  = INT32_MAX;
+        lower_bound(target, ans, root);
+        if (ans != INT32_MAX and ans >= target)
+            return {true, ans};
 
-        return {true, ans};
+        }
+        return {false, -1};
+
     }
     pair<bool, int> upper_bound(int target)
     {
-        if(!root)
-            return {false,-1};
+        if(root)
+        {
 
-        int ans  =INT32_MAX;
-        upper_bound(target,ans,root);
+            int ans  = INT32_MAX;
+            upper_bound(target, ans, root);
+            if (ans != INT32_MAX and ans > target)
+                return {true, ans};
 
-        if(ans == INT32_MAX or ans < target)
-            return {false, -1};
-
-        return {true, ans};
+        }
+        return {false, -1};
     }
 };
-int main()
-{
-    AVLTree tree;
-
-    vector<int> v { 10, 5, 20, 15, 50, 70, 2, 13, 40 };
-
-    for (int i = 0; i < v.size(); ++i)
-        tree.insert_value(v[i]);
-
-    sort(v.begin(), v.end());
-    for (int i = 0; i < v.size(); ++i)
-        cout << v[i]<< " " << tree.upper_bound(v[i]).second << "\n";
-    cout<<tree.lower_bound(45).second;
-    return 0;
-}
