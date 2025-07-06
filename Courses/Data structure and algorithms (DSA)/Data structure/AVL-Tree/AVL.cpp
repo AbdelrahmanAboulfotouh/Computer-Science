@@ -52,7 +52,8 @@ private:
         return Q;
     }
 
-    BinaryNode* balance(BinaryNode* node) {
+    BinaryNode* balance(BinaryNode* node)
+    {
         if (node->balance_factor() == 2) { 			// Left
             if (node->left->balance_factor() == -1)	// Left Right?
                 node->left = left_rotation(node->left);	// To Left Left
@@ -124,7 +125,20 @@ private:
     }
 
 
+void lower_bound(int target, int &ans, BinaryNode* cur )
+{
+        if(!cur)
+            return ;
 
+        if (cur->data >= target)
+            {
+                ans = min(ans, cur->data);
+                lower_bound(target,ans,cur->left);
+            }
+        else
+             lower_bound(target,ans,cur->right);
+
+}
 public:
     void insert_value(int target) {
         if (!root)
@@ -139,5 +153,32 @@ public:
         }
     }
 
+    pair<bool, int> lower_bound(int target)
+    {
+        if(!root)
+            return {false,-1};
 
+        int ans  =INT32_MAX;
+        lower_bound(target,ans,root);
+
+         if(ans == INT32_MAX or ans < target)
+             return {false, -1};
+
+        return {true, ans};
+    }
 };
+int main()
+{
+    AVLTree tree;
+
+    vector<int> v { 10, 5, 20, 15, 50, 70, 2, 13, 40 };
+
+    for (int i = 0; i < v.size(); ++i)
+        tree.insert_value(v[i]);
+
+    sort(v.begin(), v.end());
+    for (int i = 0; i < v.size(); ++i)
+        cout << v[i]<< " " << tree.lower_bound(v[i]).second << "\n";
+    cout<<tree.lower_bound(71).second;
+    return 0;
+}
