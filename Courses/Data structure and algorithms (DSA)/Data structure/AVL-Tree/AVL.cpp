@@ -154,6 +154,15 @@ void lower_bound(int target, int &ans, BinaryNode* cur )
             upper_bound(target,ans,cur->right);
 
     }
+    int count_bigger(int val,BinaryNode* node)
+    {
+        if(!node)
+            return 0;
+        if(node->data > val)
+            return  1 + count_bigger(val , node->left) + count_bigger(val , node->right);
+
+        return count_bigger(val,node->right);
+    }
 public:
     void insert_value(int target) {
         if (!root)
@@ -196,15 +205,7 @@ public:
         }
         return {false, -1};
     }
-    int count_bigger(int val,BinaryNode* node)
-    {
-        if(!node)
-            return 0;
-        if(node->data > val)
-            return  1 + count_bigger(val , node->left) + count_bigger(val , node->right);
 
-        return count_bigger(val,node->right);
-    }
     int count_inversion(vector<int> v)
     {
         int sum {0};
