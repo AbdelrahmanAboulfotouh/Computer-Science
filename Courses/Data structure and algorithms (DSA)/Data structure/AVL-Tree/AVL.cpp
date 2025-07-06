@@ -139,6 +139,21 @@ void lower_bound(int target, int &ans, BinaryNode* cur )
              lower_bound(target,ans,cur->right);
 
 }
+
+    void upper_bound(int target, int &ans, BinaryNode* cur )
+    {
+        if(!cur)
+            return ;
+
+        if (cur->data > target)
+        {
+            ans = min(ans, cur->data);
+            upper_bound(target,ans,cur->left);
+        }
+        else
+            upper_bound(target,ans,cur->right);
+
+    }
 public:
     void insert_value(int target) {
         if (!root)
@@ -166,6 +181,19 @@ public:
 
         return {true, ans};
     }
+    pair<bool, int> upper_bound(int target)
+    {
+        if(!root)
+            return {false,-1};
+
+        int ans  =INT32_MAX;
+        upper_bound(target,ans,root);
+
+        if(ans == INT32_MAX or ans < target)
+            return {false, -1};
+
+        return {true, ans};
+    }
 };
 int main()
 {
@@ -178,7 +206,7 @@ int main()
 
     sort(v.begin(), v.end());
     for (int i = 0; i < v.size(); ++i)
-        cout << v[i]<< " " << tree.lower_bound(v[i]).second << "\n";
-    cout<<tree.lower_bound(71).second;
+        cout << v[i]<< " " << tree.upper_bound(v[i]).second << "\n";
+    cout<<tree.lower_bound(45).second;
     return 0;
 }
