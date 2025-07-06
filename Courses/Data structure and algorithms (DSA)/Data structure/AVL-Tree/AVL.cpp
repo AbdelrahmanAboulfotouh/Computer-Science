@@ -196,4 +196,38 @@ public:
         }
         return {false, -1};
     }
+    int count_bigger(int val,BinaryNode* node)
+    {
+        if(!node)
+            return 0;
+        if(node->data > val)
+            return  1 + count_bigger(val , node->left) + count_bigger(val , node->right);
+
+        return count_bigger(val,node->right);
+    }
+    int count_inversion(vector<int> v)
+    {
+        int sum {0};
+
+        for(auto & i:v)
+        {
+            insert_value(i);
+            cout<<i<<" "<<count_bigger(i,root)<<"\n";
+            sum+= count_bigger(i,root);
+        }
+        return sum;
+    }
 };
+
+int main() {
+    AVLTree tree;
+
+    vector<int> v { 10, 5, 8, 2, 12, 6 };
+    //vector<int> v { 5, 4, 3, 2, 1};
+    cout << tree.count_inversion(v);
+
+    cout << "\nbye\n";
+
+    return 0;
+}
+
