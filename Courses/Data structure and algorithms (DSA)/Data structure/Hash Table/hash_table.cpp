@@ -8,12 +8,12 @@ int hash_string (string str , int n)
     long long limit = n;
     long long sum {};
     for(auto &c : str)
-        sum += (sum * 26 + c -'a') %limit;
+        sum = (sum * 26 +( c -'a')) %limit;
 
     return sum % limit ;
 }
 struct phoneHashing{
-    const static  int LIMIT = 1235679;
+    const static  int LIMIT = 65407;
     string name{};
     string phone_number{};
     int hash()
@@ -43,8 +43,9 @@ public:
                 //table[idx][i] = phone; // update (optional)
                 return;
             }
-            table[idx].push_back(phone);
         }
+        table[idx].push_back(phone);
+
     }
 
 bool remove(phoneHashing  phone)
@@ -54,9 +55,7 @@ bool remove(phoneHashing  phone)
         {
             if(table[idx][i].name == phone.name)
             {
-                auto x = table[idx][i];
-                auto y = table[idx].back();
-                swap(x,y);
+                swap(table[idx][i], table[idx].back());
                 table[idx].pop_back();
                 return true;
             }
@@ -66,12 +65,12 @@ bool remove(phoneHashing  phone)
 bool get(phoneHashing & phone)
 {
         int idx = phone.hash() % table_size;
-        for(int i{0};i<(int)table[idx].size();++i)
-        {
-            if(table[idx][i].name== phone.name)
-                phone = table[idx][i];
+    for (auto &entry : table[idx]) {
+        if (entry.name == phone.name) {
+            phone = entry;
             return true;
         }
+    }
     return false;
 }
 void print_all()
@@ -89,3 +88,34 @@ void print_all()
         }
 }
 };
+
+int main() {
+
+    hashtable table(3);
+    table.put(phoneHashing("mostafa", "604-401-120"));
+    table.put(phoneHashing("mostafa", "604-401-777"));	// update
+    table.put(phoneHashing("ali", "604-401-343"));
+    table.put(phoneHashing("ziad", "604-401-17"));
+    table.put(phoneHashing("hany", "604-401-758"));
+    table.put(phoneHashing("belal", "604-401-550"));
+    table.put(phoneHashing("john", "604-401-223"));
+
+    phoneHashing e("mostafa", "");
+    if (table.get(e))
+        cout << e.phone_number << "\n";	// 604-401-777
+
+    table.print_all();
+    // Hash 0: (ali, 604-401-343)  (hany, 604-401-758)  (john, 604-401-223)
+    // Hash 1: (mostafa, 604-401-777)  (ziad, 604-401-17)
+    // Hash 2: (belal, 604-401-550)
+
+    cout << table.remove(phoneHashing("smith", "")) << "\n"; // 0
+    cout << table.remove(phoneHashing("hany", "")) << "\n";  // 1
+    cout << table.remove(phoneHashing("belal", "")) << "\n";  // 1
+    table.print_all();
+    // Hash 0: (ali, 604-401-343)  (john, 604-401-223)
+    // Hash 1: (mostafa, 604-401-777)  (ziad, 604-401-17)
+
+
+    return 0;
+}
