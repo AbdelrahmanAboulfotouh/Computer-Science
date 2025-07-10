@@ -3,15 +3,37 @@
 #include <algorithm>
 using namespace std;
 
-int hash_string (string str , int n)
+int hash_string (const string & str , const int &n)
 {
     long long limit = n;
-    long long sum {};
+    long long  sum {};
     for(auto &c : str)
-        sum = (sum * 26 +( c -'a')) %limit;
+        sum = (sum * 26+( c -'a')) %limit;
 
     return sum % limit ;
 }
+
+int hash_string_extended (const string & str , const int & n)
+{
+    long long limit = n;
+    long long sum {};
+    int base = 62 ;//(2 * 26 + 10 )
+    for(auto &c : str)
+    {
+        int val {0};
+        if(islower(c))
+            val = c - 'a';
+        else if (isupper(c))
+            val = 26 + (c - 'A');
+        else if (isdigit(c))
+            val = 26 + c - '0';
+        sum = ((sum * base) + val) % limit;
+
+    }
+
+    return sum % limit ;
+}
+
 struct phoneHashing{
     const static  int LIMIT = 65407;
     string name{};
@@ -90,31 +112,6 @@ void print_all()
 };
 
 int main() {
-
-    hashtable table(3);
-    table.put(phoneHashing("mostafa", "604-401-120"));
-    table.put(phoneHashing("mostafa", "604-401-777"));	// update
-    table.put(phoneHashing("ali", "604-401-343"));
-    table.put(phoneHashing("ziad", "604-401-17"));
-    table.put(phoneHashing("hany", "604-401-758"));
-    table.put(phoneHashing("belal", "604-401-550"));
-    table.put(phoneHashing("john", "604-401-223"));
-
-    phoneHashing e("mostafa", "");
-    if (table.get(e))
-        cout << e.phone_number << "\n";	// 604-401-777
-
-    table.print_all();
-    // Hash 0: (ali, 604-401-343)  (hany, 604-401-758)  (john, 604-401-223)
-    // Hash 1: (mostafa, 604-401-777)  (ziad, 604-401-17)
-    // Hash 2: (belal, 604-401-550)
-
-    cout << table.remove(phoneHashing("smith", "")) << "\n"; // 0
-    cout << table.remove(phoneHashing("hany", "")) << "\n";  // 1
-    cout << table.remove(phoneHashing("belal", "")) << "\n";  // 1
-    table.print_all();
-    // Hash 0: (ali, 604-401-343)  (john, 604-401-223)
-    // Hash 1: (mostafa, 604-401-777)  (ziad, 604-401-17)
 
 
     return 0;
