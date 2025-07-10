@@ -48,6 +48,19 @@ struct phoneHashing{
         cout<<"NAME : "<<name<<" "<<"Phone : "<<phone_number<<"\n";
     }
 };
+struct someobject{
+    static const int LIMIT = 214789564;
+    string name1, name2;
+    int number;
+
+    int hash()
+    {
+        long long res = hash_string_extended(name1,LIMIT);
+        res += hash_string_extended(name2,LIMIT) %LIMIT;
+        res += hash_string_extended(to_string(number),LIMIT)%LIMIT;
+        return res;
+    }
+};
 class hashtable{
 private:
     int table_size{};
