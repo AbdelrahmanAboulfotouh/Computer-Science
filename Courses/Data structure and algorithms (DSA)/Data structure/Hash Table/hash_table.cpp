@@ -61,13 +61,40 @@ struct someobject{
         return res;
     }
 };
+
 class hashtable{
 private:
     int table_size{};
+    int Total_elements{};
+    double limit_load_factor{};
     vector<vector<phoneHashing>>table;
 public:
-    hashtable(int table_size):table_size(table_size)
-    {table.resize(table_size);}
+    hashtable(int table_size = 10, double limit_load_factor = 0.75):table_size(table_size)
+    {
+        table.resize(table_size);
+        this->limit_load_factor = limit_load_factor;
+            Rehash();
+
+    }
+    void Rehash()
+    {
+        double cur_load = Total_elements / table_size;
+        if(cur_load  < (double) limit_load_factor)
+            return;
+        hashtable new_table(table_size *2 , limit_load_factor);
+        for(int idx{0} ; idx < (int)table_size; ++idx)
+        {
+            if(table[idx].size() == 0)
+                continue;
+            for(auto & object:table[idx])
+                new_table.put(object);
+
+        }
+        table_size*=2;
+        table = new_table.table;
+
+
+    }
 
     void put(phoneHashing phone)
     {
@@ -75,11 +102,13 @@ public:
         for(int i{0};i<(int)table[idx].size();++i)
         {
             if(table[idx][i].name == phone.name) {
-                //table[idx][i] = phone; // update (optional)
+                table[idx][i] = phone; // update (optional)
                 return;
             }
         }
         table[idx].push_back(phone);
+        ++Total_elements;
+        Rehash();
 
     }
 
@@ -92,6 +121,7 @@ bool remove(phoneHashing  phone)
             {
                 swap(table[idx][i], table[idx].back());
                 table[idx].pop_back();
+                --Total_elements;
                 return true;
             }
         }
