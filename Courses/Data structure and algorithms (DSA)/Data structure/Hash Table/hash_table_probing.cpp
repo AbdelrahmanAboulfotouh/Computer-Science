@@ -1,5 +1,6 @@
 #include<iostream>
 #include <vector>
+#include <bits/stdc++.h>
 #include<cassert>
 using namespace std;
 
@@ -105,69 +106,3 @@ public:
     }
 };
 
-int main() {
-
-    PhoneHashTable table(11);
-    table.put(PhoneEntry("mostafa", "604-401-120"));
-    table.put(PhoneEntry("mostafa", "604-401-777"));
-    table.put(PhoneEntry("ali", "604-401-343"));
-    table.put(PhoneEntry("ziad", "604-401-17"));
-    table.put(PhoneEntry("hany", "604-401-758"));
-    table.put(PhoneEntry("belal", "604-401-550"));
-    table.put(PhoneEntry("john", "604-401-223"));
-
-    table.print_all();
-
-    /*
-     0  E
-     1  E
-     2  E
-     3 (john, 604-401-223)
-     4  E
-     5  E
-     6 (mostafa, 604-401-120)
-     7 (hany, 604-401-758)
-     8 (ali, 604-401-343)
-     9 (ziad, 604-401-17)
-     10 (belal, 604-401-550)
-     */
-
-    cout << table.remove(PhoneEntry("smith", "")) << "\n"; // 0
-    cout << table.remove(PhoneEntry("hany", "")) << "\n";  // 1
-    cout << table.remove(PhoneEntry("john", "")) << "\n";  // 1
-    table.print_all();
-    /*
-     0  E
-     1  E
-     2  E
-     3  X
-     4  E
-     5  E
-     6 (mostafa, 604-401-120)
-     7  X
-     8 (ali, 604-401-343)
-     9 (ziad, 604-401-17)
-     10 (belal, 604-401-550)
-     */
-
-    PhoneEntry e("belal", "");
-    if (table.get(e))
-        cout << e.phone_number << "\n";	// 604-401-550
-
-    table.put(PhoneEntry("hany", "604-401-555"));
-    table.print_all();
-    /*
-     0  E
-     1  E
-     2  E
-     3  X
-     4  E
-     5  E
-     6 (mostafa, 604-401-120)
-     7 (hany, 604-401-555)
-     8 (ali, 604-401-343)
-     9 (ziad, 604-401-17)
-     10 (belal, 604-401-550)
-     */
-    return 0;
-}
