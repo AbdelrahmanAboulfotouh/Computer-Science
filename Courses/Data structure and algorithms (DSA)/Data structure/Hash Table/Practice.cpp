@@ -31,10 +31,30 @@ int count_substrings_match(const string &str1, const string &str2)
                 ans.insert(W1);
     return ans.size();
 }
+bool is_anagram(string s1,string s2)
+{
+    std::sort(s1.begin(), s1.end());
+    std::sort(s2.begin(), s2.end());
+    return s1 == s2;
+}
+int count_anagram_substrings(const string &str)
+{
+    auto s = unique_substrings(str);
+    vector<string> v  (s.begin(),s.end());
+    int count{0};
+   for(int i{0};i<v.size()-1;++i)
+       for(int j = i+1;j<v.size();++j)
+           if(v[i].size() == v[j].size() and is_anagram(v[i],v[j]))
+               ++count;
+
+
+
+    return s.size()-count;
+}
 int main()
 {
-    string test1 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab";
+    string test1 = "aabade";
     string test2 = "xaaaaaaaaaaaaaaaaadvsfffffffffffffffffffffffffffffffffffffffffffffffffffffffddddddddddddddddeeeeeey";
-    cout<<count_substrings_match(test1,test2)<<"\n";
+    cout<<count_anagram_substrings(test1)<<"\n";
     return 0;
 }
