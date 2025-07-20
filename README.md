@@ -1,6 +1,6 @@
 # **Computer Science Courses** 
 ## Core  Programming  
-  - [programming Languages - Washington University](https://github.com/AbdelrahmanAboulfotouh/Computer-Science/tree/main/Courses/Programming%20Languages%20-%20University%20of%20Washington)
+  - programming Languages - Washington University
   - [Object oriented programming.]()
   - [Data structures and algorithms](https://github.com/AbdelrahmanAboulfotouh/Computer-Science/tree/main/Courses/Data%20structure%20and%20algorithms%20(DSA)).
 ## Core systems 
