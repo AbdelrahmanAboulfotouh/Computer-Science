@@ -42,4 +42,50 @@ public:
         string time = to_string(Hour) + "," + to_string(Minute) + "," + to_string(Second);
         return time;
     }
+
+
 };
+class DateTime{
+    Date date1;
+    Time time1;
+    DateTime(Date date1,Time time1):time1(time1), date1(date1){}
+    /*
+     *
+     *
+     *
+     *
+     */
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const int MAX = 500;
+string employee_first_name[MAX];
+string employee_middle_name[MAX];
+string employee_last_name[MAX];
+int employee_age[MAX];
+double employee_salary[MAX];
+
+
+
+
+struct BankCustomer {
+    string name;
+    string address;
+    string mobile;
+    string birth_of_date;
+    int rectangle_width;
+    string favourite_movie;
+    string favourite_color;
+    string favourite_actor;
+    string favourite_car_model;
+    string favourite_food;
+
+
+    // Potential several functions related to birth date
+};
+// Review
+
+/*
+ * too much details ara there
+ * which not matters for a bank account
+ */
