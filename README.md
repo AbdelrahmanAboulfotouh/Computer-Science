@@ -10,4 +10,5 @@
   - StanfordOnline: Compilers
   ## Core Applications
   - [CS50’s Introduction to Databases with SQL](https://github.com/AbdelrahmanAboulfotouh/Computer-Science/tree/main/Courses/CS50%E2%80%99s%20Introduction%20to%20Databases%20with%20SQL)
+  - CMU 15-445 :: Intro to Database Systems 
 
