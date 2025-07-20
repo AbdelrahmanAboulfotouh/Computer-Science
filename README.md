@@ -4,7 +4,6 @@
   - [Object oriented programming.]()
   - [Data structures and algorithms](https://github.com/AbdelrahmanAboulfotouh/Computer-Science/tree/main/Courses/Data%20structure%20and%20algorithms%20(DSA)).
 ## Core systems 
-  - Build a Modern Computer from Nand to Tetris.
   - Operating Systems: Three Easy Pieces.
   - Computer Networking: a Top-Down Approach .
   ## Compiler's theory
