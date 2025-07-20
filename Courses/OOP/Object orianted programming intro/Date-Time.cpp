@@ -89,3 +89,14 @@ struct BankCustomer {
  * too much details ara there
  * which not matters for a bank account
  */
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Shaps
+/*
+ common member data may be width , length
+ common methods maybe calculate area Perimeter
+ common Data: Color
+ common Functions: Draw & Compute area, but each one has different behaviour
+
+ special maybe number of sides , how actually the area and perimeter is calculated
+
+ */
