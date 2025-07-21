@@ -122,6 +122,10 @@ int minimum_pair_equation(int arr[],int n)
     }
     return ans;
 }
+void find_most_3_minimum(int arr[],int n)
+{
+
+}
 int main()
 {
     int arr[] = {20,1,9,4};
