@@ -1,0 +1,90 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/2/ALU.hdl
+/**
+ * ALU (Arithmetic Logic Unit):
+ * Computes out = one of the following functions:
+ *                0, 1, -1,
+ *                x, y, !x, !y, -x, -y,
+ *                x + 1, y + 1, x - 1, y - 1,
+ *                x + y, x - y, y - x,
+ *                x & y, x | y
+ * on the 16-bit inputs x, y,
+ * according to the input bits zx, nx, zy, ny, f, no.
+ * In addition, computes the two output bits:
+ * if (out == 0) zr = 1, else zr = 0
+ * if (out < 0)  ng = 1, else ng = 0
+ */
+// Implementation: Manipulates the x and y inputs
+// and operates on the resulting values, as follows:
+// if (zx == 1) sets x = 0        // 16-bit constant
+// if (nx == 1) sets x = !x       // bitwise not
+// if (zy == 1) sets y = 0        // 16-bit constant
+// if (ny == 1) sets y = !y       // bitwise not
+// if (f == 1)  sets out = x + y  // integer 2's complement addition
+// if (f == 0)  sets out = x & y  // bitwise and
+// if (no == 1) sets out = !out   // bitwise not
+
+CHIP ALU {
+    IN  
+        x[16], y[16],  // 16-bit inputs        
+        zx, // zero the x input?
+        nx, // negate the x input?
+        zy, // zero the y input?
+        ny, // negate the y input?
+        f,  // compute (out = x + y) or (out = x & y)?
+        no; // negate the out output?
+    OUT 
+        out[16], // 16-bit output
+        zr,      // if (out == 0) equals 1, else 0
+        ng;      // if (out < 0)  equals 1, else 0
+
+    PARTS:
+    //// Replace this comment with your code.
+
+//Pre-setting pipline
+    //zx pipline
+    Mux16(a=x , b=false , sel=zx , out=zxX );
+    //nx pipline 
+    Not16(in=zxX , out=Notx );
+    Mux16(a=zxX , b=Notx , sel=nx , out=nxX );
+
+    //zypipline
+    Mux16(a=y , b=false , sel=zy , out=zyY );
+    //ny pipline
+    Not16(in=zyY , out=Noty );
+    Mux16(a=zyY , b=Noty , sel=ny , out=nyY );
+//selectiong between + or & 
+    //x + y 
+    Add16(a=nxX , b=nyY , out=xPy );
+    //x &y
+    And16(a=nxX , b=nyY , out= xANDy);
+    //select
+    Mux16(a=xANDy , b=xPy , sel=f , out=Outemp );
+//Post-setting the output
+    Not16(in= Outemp, out=NOutemp );
+    Mux16(a=Outemp , b=NOutemp , sel=no , out=out , out[15]=msb  , out[0..7] = lowHalf,out[8..15] = highHalf);
+
+
+//zr set 
+    Or8Way(in=lowHalf , out=lowHalfFlag );
+    Or8Way(in=highHalf , out=highHalfFlag );
+    Or(a=lowHalfFlag , b=highHalfFlag , out=zrFlag );
+    Mux(a=true , b=false , sel=zrFlag , out=zr );
+
+
+//ng set 
+    Mux(a=false , b=true , sel=msb , out=ng );
+
+
+
+
+
+   
+
+
+
+
+    
+}
