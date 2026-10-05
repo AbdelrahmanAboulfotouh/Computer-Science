@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/aboulfotouh/Documents/Sparse Array and Matrix in CPP/cmake-build-debug",
+  "command": "/usr/bin/c++ -g -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles/CPPArrayList.dir/main.cpp.o -c \"/home/aboulfotouh/Documents/Sparse Array and Matrix in CPP/main.cpp\"",
+  "file": "/home/aboulfotouh/Documents/Sparse Array and Matrix in CPP/main.cpp",
+  "output": "/home/aboulfotouh/Documents/Sparse Array and Matrix in CPP/cmake-build-debug/CMakeFiles/CPPArrayList.dir/main.cpp.o"
+}
+]
